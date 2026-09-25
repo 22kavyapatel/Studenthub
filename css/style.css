@@ -1,0 +1,434 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f8fafc;
+    color:#222;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    padding:15px 50px;
+    background:white;
+    border-bottom:1px solid #ddd;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+}
+
+.logo span{
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#222;
+    font-weight:600;
+    padding-bottom:4px;
+}
+
+nav a.active,
+nav a:hover{
+    border-bottom:2px solid #222;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:12px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-light{
+    border:1px solid #222;
+    color:#222;
+    background:white;
+}
+
+.btn-light:hover{
+    background:#f3f4f6;
+}
+
+.btn-dark{
+    background:#222;
+    color:white;
+    border:1px solid #222;
+}
+
+.btn-dark:hover{
+    background:#000;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+    padding:25px 60px;
+    background:white;
+    border-top:1px solid #ddd;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#444;
+}
+
+@media(max-width:900px){
+
+.navbar{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+footer{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+}
+
+}
+/* =========================================
+   STUDENTHUB DARK / LIGHT THEME
+   ========================================= */
+
+/* THEME BUTTON */
+
+.theme-btn {
+    padding: 11px 18px;
+    border: 2px solid #222;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #222222;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background: #222222;
+    color: #ffffff;
+}
+
+
+/* DARK BODY */
+
+body.dark-mode {
+    background: #111827;
+    color: #f9fafb;
+}
+
+
+/* NAVBAR */
+
+body.dark-mode .navbar {
+    background: #1f2937;
+    border-bottom: 1px solid #374151;
+}
+
+
+/* LOGO */
+
+body.dark-mode .logo span {
+    color: #ffffff;
+}
+
+
+/* NAVIGATION */
+
+body.dark-mode nav a {
+    color: #ffffff;
+}
+
+
+/* LOGIN BUTTON */
+
+body.dark-mode .btn-light {
+    background: #1f2937;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+
+/* DARK THEME BUTTON */
+
+body.dark-mode .theme-btn {
+    background: #374151;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+body.dark-mode .theme-btn:hover {
+    background: #ffffff;
+    color: #111827;
+}
+
+
+/* FOOTER */
+
+body.dark-mode footer {
+    background: #1f2937;
+    border-top-color: #374151;
+}
+
+body.dark-mode .footer-links a {
+    color: #d1d5db;
+}
+/* ================= LOGIN POPUP ================= */
+
+.login-popup {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+.login-popup.show {
+    display: flex;
+}
+
+.login-popup-box {
+    width: 90%;
+    max-width: 430px;
+
+    background: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    animation: popupAnimation 0.25s ease;
+}
+
+.popup-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.login-popup-box h2 {
+    margin-bottom: 12px;
+    font-size: 28px;
+    color: #111827;
+}
+
+.login-popup-box p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.close-popup {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    color: #555;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.popup-buttons button {
+    cursor: pointer;
+}
+
+@keyframes popupAnimation {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* ================= DARK MODE POPUP ================= */
+
+body.dark-mode .login-popup-box {
+    background: #1f2937;
+}
+
+body.dark-mode .login-popup-box h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .login-popup-box p {
+    color: #d1d5db;
+}
+
+body.dark-mode .close-popup {
+    color: #ffffff;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .login-popup-box {
+        width: 92%;
+        padding: 30px 20px;
+    }
+
+    .popup-buttons {
+        flex-direction: column;
+    }
+
+    .popup-buttons .btn {
+        width: 100%;
+    }
+
+}
+.theme-btn {
+    padding: 11px 18px;
+    border-radius: 8px;
+
+    background: #f3f4f6;
+    color: #111827;
+
+    border: 1px solid #d1d5db;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.theme-btn:hover {
+    background: #e5e7eb;
+}
+
+body.dark-theme .theme-btn {
+    background: #374151;
+    color: #ffffff;
+    border-color: #6b7280;
+}
+
+body.dark-theme .theme-btn:hover {
+    background: #4b5563;
+}
+/* ================= DARK THEME ================= */
+
+body.dark-theme {
+    background: #111827 !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .navbar {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .sidebar {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .main-content {
+    background: #111827 !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .card,
+body.dark-theme .panel,
+body.dark-theme .attendance-card {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+    border-color: #374151 !important;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme strong {
+    color: #ffffff !important;
+}
+
+body.dark-theme p {
+    color: #d1d5db !important;
+}
+
+body.dark-theme a {
+    color: #ffffff !important;
+}
+
+body.dark-theme footer {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+}

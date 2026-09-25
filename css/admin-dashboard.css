@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    color: #172033;
+}
+
+
+/* MAIN LAYOUT */
+
+.dashboard {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 335px;
+    min-height: 100vh;
+    background: white;
+    border-right: 1px solid #e1e5eb;
+    padding: 32px 28px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* BRAND */
+
+.brand h1 {
+    color: #8b1de8;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.brand p {
+    color: #687386;
+    font-size: 18px;
+}
+
+
+/* WELCOME */
+
+.welcome-box {
+    background: #fbf3ff;
+    border: 1px solid #ead4ff;
+    border-radius: 12px;
+
+    padding: 20px;
+    margin-top: 42px;
+    margin-bottom: 28px;
+}
+
+.welcome-box p {
+    color: #687386;
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.welcome-box strong {
+    font-size: 20px;
+}
+
+
+/* SIDEBAR NAV */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #202735;
+
+    padding: 11px 14px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    border-radius: 8px;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: #f3e7ff;
+    color: #8b1de8;
+}
+
+
+/* LOGOUT */
+
+.logout {
+    margin-top: auto;
+
+    text-align: center;
+    text-decoration: none;
+
+    background: #ffe5e8;
+    color: #e5394f;
+
+    padding: 11px;
+    border-radius: 10px;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.logout:hover {
+    background: #ffd5da;
+}
+
+
+/* MAIN CONTENT */
+
+.main-content {
+    flex: 1;
+    padding: 38px 38px;
+    overflow-x: hidden;
+}
+
+
+/* PAGE TITLE */
+
+.page-title {
+    font-size: 46px;
+    margin-bottom: 38px;
+}
+
+
+/* STATISTICS */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 18px;
+}
+
+
+/* STAT CARD */
+
+.stat-card {
+    background: white;
+
+    border: 1px solid #e0e4e9;
+    border-radius: 14px;
+
+    padding: 32px 28px;
+
+    min-height: 158px;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.stat-card p {
+    color: #687386;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.stat-card h3 {
+    font-size: 38px;
+}
+
+
+/* STAT COLORS */
+
+.blue {
+    color: #2875e8;
+}
+
+.green {
+    color: #13a45b;
+}
+
+.purple {
+    color: #9b20e8;
+}
+
+.orange {
+    color: #ed4b17;
+}
+
+.violet {
+    color: #5844e8;
+}
+
+
+/* LOWER GRID */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 1.05fr 0.95fr;
+
+    gap: 36px;
+
+    margin-top: 38px;
+}
+
+
+/* WHITE CONTENT CARDS */
+
+.dashboard-card {
+    background: white;
+
+    border: 1px solid #e0e4e9;
+    border-radius: 15px;
+
+    padding: 32px;
+
+    min-height: 450px;
+}
+
+.dashboard-card > h2 {
+    font-size: 27px;
+    margin-bottom: 28px;
+}
+
+
+/* STUDENT ITEM */
+
+.student-item {
+    background: #f8fafc;
+
+    border: 1px solid #e4e8ee;
+
+    border-radius: 12px;
+
+    padding: 17px 16px;
+
+    margin-bottom: 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.student-item p {
+    color: #687386;
+    font-size: 16px;
+}
+
+.student-item strong {
+    color: #2875e8;
+    font-size: 17px;
+}
+
+
+/* TEACHER ITEM */
+
+.teacher-item {
+    background: #f8fafc;
+
+    border: 1px solid #e4e8ee;
+
+    border-radius: 12px;
+
+    padding: 17px 16px;
+
+    margin-bottom: 14px;
+}
+
+.teacher-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.teacher-item p {
+    color: #687386;
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+
+    .sidebar {
+        width: 280px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .logout {
+        margin-top: 25px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .main-content {
+        padding: 25px 18px;
+    }
+
+    .page-title {
+        font-size: 34px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-card {
+        padding: 22px;
+    }
+
+    .student-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+}

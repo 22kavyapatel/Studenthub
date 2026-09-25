@@ -1,0 +1,93 @@
+
+[
+    {
+        "question": "What is StudentHub?",
+        "answer": "StudentHub is a student portal designed to provide students with easy access to college events, notices, registration, resources and important information.",
+        "category": "General"
+    },
+
+    {
+        "question": "Who can use StudentHub?",
+        "answer": "StudentHub can be used by registered students, faculty members and authorized college users.",
+        "category": "General"
+    },
+
+    {
+        "question": "How do I create a StudentHub account?",
+        "answer": "Go to the Registration page and enter your name, email, mobile number, course, year and password. Submit the form to create your account.",
+        "category": "Account"
+    },
+
+    {
+        "question": "How do I log in to StudentHub?",
+        "answer": "Open the Login page and enter your registered email address and password. Click the Login button to access your account.",
+        "category": "Account"
+    },
+
+    {
+        "question": "What should I do if I forget my password?",
+        "answer": "Use the Forgot Password option on the Login page and follow the instructions to reset your password.",
+        "category": "Account"
+    },
+
+    {
+        "question": "Can I update my profile information?",
+        "answer": "Yes. You can update your personal and academic information from your student dashboard whenever profile editing is available.",
+        "category": "Account"
+    },
+
+    {
+        "question": "How can I view upcoming college events?",
+        "answer": "Open the Events page to view upcoming workshops, seminars, competitions, cultural activities and other college events.",
+        "category": "Events"
+    },
+
+    {
+        "question": "How can I register for an event?",
+        "answer": "Open the Events page, select the event you are interested in and click the Register button. Complete the required details to confirm your registration.",
+        "category": "Events"
+    },
+
+    {
+        "question": "Can I register for more than one event?",
+        "answer": "Yes. You can register for multiple events as long as the registration period is open and there is no schedule conflict.",
+        "category": "Events"
+    },
+
+    {
+        "question": "How do I know if my event registration is successful?",
+        "answer": "After successful registration, a confirmation message will be displayed. You may also receive confirmation through your registered email.",
+        "category": "Registration"
+    },
+
+    {
+        "question": "Can I cancel my event registration?",
+        "answer": "Cancellation depends on the rules of the particular event. Check the event details or contact the support team for assistance.",
+        "category": "Registration"
+    },
+
+    {
+        "question": "Where can I find college notices?",
+        "answer": "All important college announcements and updates can be found on the Notices page.",
+        "category": "General"
+    },
+
+    {
+        "question": "How can I contact StudentHub support?",
+        "answer": "You can contact the support team through the Contact page using the available email address, phone number or contact form.",
+        "category": "Support"
+    },
+
+    {
+        "question": "What should I do if a page is not working?",
+        "answer": "First refresh the page and check your internet connection. If the problem continues, contact the StudentHub support team.",
+        "category": "Support"
+    },
+
+    {
+        "question": "How can I report a technical problem?",
+        "answer": "Visit the Contact page and describe the problem clearly. Include the page name and any error message so the support team can help you.",
+        "category": "Support"
+    }
+]
+

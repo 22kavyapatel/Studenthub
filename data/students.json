@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Aarav Patel",
+        "rollNo": "D26IT001",
+        "course": "B.Tech IT",
+        "year": 2,
+        "email": "aarav@example.com"
+    },
+    {
+        "id": 2,
+        "name": "Riya Shah",
+        "rollNo": "D26IT002",
+        "course": "B.Tech IT",
+        "year": 2,
+        "email": "riya@example.com"
+    },
+    {
+        "id": 3,
+        "name": "Karan Mehta",
+        "rollNo": "D26IT003",
+        "course": "B.Tech CSE",
+        "year": 2,
+        "email": "karan@example.com"
+    },
+    {
+        "id": 4,
+        "name": "Neha Patel",
+        "rollNo": "D26IT004",
+        "course": "B.Tech IT",
+        "year": 2,
+        "email": "neha@example.com"
+    },
+    {
+        "id": 5,
+        "name": "Yash Desai",
+        "rollNo": "D26IT005",
+        "course": "B.Tech CSE",
+        "year": 3,
+        "email": "yash@example.com"
+    },
+    {
+        "id": 6,
+        "name": "Ananya Shah",
+        "rollNo": "D26IT006",
+        "course": "B.Tech IT",
+        "year": 3,
+        "email": "ananya@example.com"
+    },
+    {
+        "id": 7,
+        "name": "Dhruv Patel",
+        "rollNo": "D26IT007",
+        "course": "B.Tech IT",
+        "year": 2,
+        "email": "dhruv@example.com"
+    },
+    {
+        "id": 8,
+        "name": "Mahi Joshi",
+        "rollNo": "D26IT008",
+        "course": "B.Tech CSE",
+        "year": 3,
+        "email": "mahi@example.com"
+    },
+    {
+        "id": 9,
+        "name": "Dev Shah",
+        "rollNo": "D26IT009",
+        "course": "B.Tech IT",
+        "year": 4,
+        "email": "dev@example.com"
+    },
+    {
+        "id": 10,
+        "name": "Isha Mehta",
+        "rollNo": "D26IT010",
+        "course": "B.Tech IT",
+        "year": 2,
+        "email": "isha@example.com"
+    },
+    {
+        "id": 11,
+        "name": "Harsh Patel",
+        "rollNo": "D26IT011",
+        "course": "B.Tech CSE",
+        "year": 4,
+        "email": "harsh@example.com"
+    },
+    {
+        "id": 12,
+        "name": "Krisha Desai",
+        "rollNo": "D26IT012",
+        "course": "B.Tech IT",
+        "year": 3,
+        "email": "krisha@example.com"
+    },
+    {
+        "id": 13,
+        "name": "Rohan Shah",
+        "rollNo": "D26IT013",
+        "course": "B.Tech IT",
+        "year": 2,
+        "email": "rohan@example.com"
+    },
+    {
+        "id": 14,
+        "name": "Pooja Patel",
+        "rollNo": "D26IT014",
+        "course": "B.Tech CSE",
+        "year": 3,
+        "email": "pooja@example.com"
+    },
+    {
+        "id": 15,
+        "name": "Vivaan Joshi",
+        "rollNo": "D26IT015",
+        "course": "B.Tech IT",
+        "year": 4,
+        "email": "vivaan@example.com"
+    }
+]

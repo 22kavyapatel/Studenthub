@@ -1,0 +1,448 @@
+/* =========================
+   REGISTER PAGE
+========================= */
+
+.register-page {
+    width: 90%;
+    max-width: 750px;
+    margin: 70px auto 100px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.register-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.register-header p {
+    color: #4f46e5;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.register-header h1 {
+    font-size: 42px;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+.register-header span {
+    color: #6b7280;
+    font-size: 17px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+#registrationForm {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   ROLE
+========================= */
+
+.role-selection {
+    margin-bottom: 28px;
+}
+
+.role-title {
+    display: block;
+    font-weight: bold;
+    color: #374151;
+    margin-bottom: 12px;
+}
+
+.role-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.role-option {
+    cursor: pointer;
+}
+
+.role-option input {
+    display: none;
+}
+
+.role-option span {
+    display: block;
+    padding: 16px;
+    text-align: center;
+
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+
+    font-weight: bold;
+    color: #374151;
+
+    transition: 0.3s;
+}
+
+.role-option input:checked + span {
+    background: #eef2ff;
+    border-color: #4f46e5;
+    color: #4f46e5;
+}
+
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label,
+.gender-box legend {
+    display: block;
+    color: #374151;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px 15px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+
+    font-size: 15px;
+    background: white;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4f46e5;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+
+/* =========================
+   TWO COLUMNS
+========================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+/* =========================
+   HIDE TEACHER / STUDENT
+========================= */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+    display: block;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    margin-top: 6px;
+
+    min-height: 16px;
+}
+
+
+/* =========================
+   VALID / INVALID
+========================= */
+
+.form-group input.valid,
+.form-group select.valid {
+    border-color: #16a34a;
+}
+
+.form-group input.invalid,
+.form-group select.invalid {
+    border-color: #dc2626;
+}
+
+
+/* =========================
+   GENDER
+========================= */
+
+.gender-box {
+    border: none;
+    padding: 0;
+    margin: 0 0 24px;
+}
+
+.gender-options {
+    display: flex;
+    gap: 30px;
+}
+
+.gender-options label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.gender-options input {
+    accent-color: #4f46e5;
+}
+
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
+
+.strength-bar {
+    width: 100%;
+    height: 7px;
+
+    background: #e5e7eb;
+
+    border-radius: 10px;
+
+    margin-top: 10px;
+
+    overflow: hidden;
+}
+
+#strengthFill {
+    height: 100%;
+    width: 0%;
+
+    transition: 0.3s;
+}
+
+#passwordStrength {
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   TERMS
+========================= */
+
+.terms-box {
+    margin: 10px 0 25px;
+}
+
+.terms-box label {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.terms-box input {
+    margin-top: 3px;
+    accent-color: #4f46e5;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.register-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: #3730a3;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-text {
+    text-align: center;
+
+    margin-top: 22px;
+
+    color: #6b7280;
+}
+
+.login-text a {
+    color: #4f46e5;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* =========================
+   DARK THEME
+========================= */
+
+body.dark-theme .register-header h1 {
+    color: white;
+}
+
+body.dark-theme .register-header span {
+    color: #d1d5db;
+}
+
+body.dark-theme #registrationForm {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-theme .role-title,
+body.dark-theme .form-group label,
+body.dark-theme .gender-box legend {
+    color: #f9fafb;
+}
+
+body.dark-theme .role-option span {
+    background: #111827;
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+body.dark-theme .role-option input:checked + span {
+    background: #312e81;
+    border-color: #818cf8;
+    color: white;
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group select {
+    background: #111827;
+    color: white;
+    border-color: #4b5563;
+}
+
+body.dark-theme .form-group input::placeholder {
+    color: #9ca3af;
+}
+
+body.dark-theme .terms-box label {
+    color: #d1d5db;
+}
+
+body.dark-theme .login-text {
+    color: #d1d5db;
+}
+
+body.dark-theme .strength-bar {
+    background: #374151;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .register-page {
+        width: 94%;
+        margin-top: 45px;
+    }
+
+    .register-header h1 {
+        font-size: 34px;
+    }
+
+    #registrationForm {
+        padding: 25px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .gender-options {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .register-header h1 {
+        font-size: 29px;
+    }
+
+    #registrationForm {
+        padding: 20px;
+    }
+
+    .role-options {
+        grid-template-columns: 1fr;
+    }
+
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignments - StudentHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/assignment.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            StudentHub
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="assignments.html">Assignments</a>
+            <a href="notices.html">Notices</a>
+            <a href="profile.html">Profile</a>
+        </div>
+
+    </nav>
+
+
+    <main class="assignments-container">
+
+        <div class="assignments-header">
+
+            <h1>Assignments</h1>
+
+            <p>
+                View, submit and manage college assignments.
+            </p>
+
+        </div>
+
+
+        <div class="role-box">
+
+            Current Role:
+            <span id="userRole">Loading...</span>
+
+        </div>
+
+
+        <!-- Teacher Create Button -->
+
+        <div id="teacherControls" class="teacher-controls"></div>
+
+
+        <!-- Search / Filter / Sort -->
+
+        <div class="assignment-controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search assignments..."
+            >
+
+            <select id="subjectFilter">
+
+                <option value="all">
+                    All Subjects
+                </option>
+
+            </select>
+
+
+            <select id="sortSelect">
+
+                <option value="dateAsc">
+                    Due Date: Earliest
+                </option>
+
+                <option value="dateDesc">
+                    Due Date: Latest
+                </option>
+
+                <option value="titleAsc">
+                    Title: A-Z
+                </option>
+
+                <option value="titleDesc">
+                    Title: Z-A
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div id="errorMessage" class="error-message"></div>
+
+
+        <div id="loading" class="loading">
+            Loading assignments...
+        </div>
+
+
+        <div
+            id="assignmentsGrid"
+            class="events-grid">
+        </div>
+
+
+        <div
+            id="pagination"
+            class="pagination">
+        </div>
+
+    </main>
+
+
+    <script src="../js/assignments.js"></script>
+
+</body>
+
+</html>

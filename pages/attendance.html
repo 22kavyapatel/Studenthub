@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="../js/role-router.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance - StudentHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/attendance.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h1>StudentHub</h1>
+            <p>Student Portal</p>
+        </div>
+
+        <div class="welcome-box">
+            <p>Welcome back,</p>
+            <strong>john</strong>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="studentdashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="assignments.html">
+                📝 Assignments
+            </a>
+
+            <a href="attendance.html" class="active">
+                ✅ Attendance
+            </a>
+
+            <a href="profile.html">
+                👤 Profile
+            </a>
+
+            <a href="notices.html">
+                📢 Notices
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="logout">
+            Logout
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <h2>Attendance</h2>
+
+        <!-- Attendance cards will be added by JavaScript -->
+        <div id="attendance-container"></div>
+
+    </main>
+
+</div>
+
+<script src="../js/attendance.js"></script>
+<script src="../js/theme.js"></script>
+</body>
+</html>

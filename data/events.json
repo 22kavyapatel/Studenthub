@@ -1,0 +1,167 @@
+[
+    {
+        "id": 1,
+        "title": "Web Development Workshop",
+        "category": "Workshop",
+        "date": "2026-10-05",
+        "time": "10:00 AM",
+        "venue": "Computer Lab 1",
+        "description": "Learn HTML, CSS and JavaScript with practical examples.",
+        "organizer": "IT Department",
+        "capacity": 50
+    },
+    {
+        "id": 2,
+        "title": "AI and Machine Learning Seminar",
+        "category": "Seminar",
+        "date": "2026-10-08",
+        "time": "11:00 AM",
+        "venue": "Seminar Hall",
+        "description": "Introduction to Artificial Intelligence and Machine Learning.",
+        "organizer": "CSE Department",
+        "capacity": 100
+    },
+    {
+        "id": 3,
+        "title": "Coding Competition",
+        "category": "Competition",
+        "date": "2026-10-12",
+        "time": "02:00 PM",
+        "venue": "Programming Lab",
+        "description": "Test your programming and problem-solving skills.",
+        "organizer": "Coding Club",
+        "capacity": 60
+    },
+    {
+        "id": 4,
+        "title": "Cyber Security Awareness",
+        "category": "Seminar",
+        "date": "2026-10-15",
+        "time": "10:30 AM",
+        "venue": "Auditorium",
+        "description": "Learn about online safety, passwords and cyber threats.",
+        "organizer": "Cyber Security Club",
+        "capacity": 150
+    },
+    {
+        "id": 5,
+        "title": "Java Programming Workshop",
+        "category": "Workshop",
+        "date": "2026-10-18",
+        "time": "09:30 AM",
+        "venue": "Computer Lab 2",
+        "description": "Hands-on Java programming workshop for students.",
+        "organizer": "Java Club",
+        "capacity": 50
+    },
+    {
+        "id": 6,
+        "title": "Annual Sports Day",
+        "category": "Sports",
+        "date": "2026-10-20",
+        "time": "08:00 AM",
+        "venue": "College Ground",
+        "description": "Annual sports activities and competitions.",
+        "organizer": "Sports Department",
+        "capacity": 300
+    },
+    {
+        "id": 7,
+        "title": "Career Guidance Session",
+        "category": "Career",
+        "date": "2026-10-23",
+        "time": "01:00 PM",
+        "venue": "Seminar Hall",
+        "description": "Career guidance and placement preparation session.",
+        "organizer": "Training and Placement Cell",
+        "capacity": 200
+    },
+    {
+        "id": 8,
+        "title": "Hackathon 2026",
+        "category": "Competition",
+        "date": "2026-10-26",
+        "time": "09:00 AM",
+        "venue": "Innovation Lab",
+        "description": "Build innovative solutions during this 24-hour hackathon.",
+        "organizer": "Innovation Club",
+        "capacity": 100
+    },
+    {
+        "id": 9,
+        "title": "Cloud Computing Workshop",
+        "category": "Workshop",
+        "date": "2026-10-29",
+        "time": "10:00 AM",
+        "venue": "Computer Lab 3",
+        "description": "Introduction to cloud computing and cloud services.",
+        "organizer": "Cloud Club",
+        "capacity": 60
+    },
+    {
+        "id": 10,
+        "title": "Photography Contest",
+        "category": "Competition",
+        "date": "2026-11-02",
+        "time": "11:00 AM",
+        "venue": "Main Campus",
+        "description": "Show your creativity through photography.",
+        "organizer": "Photography Club",
+        "capacity": 80
+    },
+    {
+        "id": 11,
+        "title": "Entrepreneurship Seminar",
+        "category": "Seminar",
+        "date": "2026-11-05",
+        "time": "02:00 PM",
+        "venue": "Auditorium",
+        "description": "Learn about startups, entrepreneurship and innovation.",
+        "organizer": "E-Cell",
+        "capacity": 150
+    },
+    {
+        "id": 12,
+        "title": "Database Management Workshop",
+        "category": "Workshop",
+        "date": "2026-11-08",
+        "time": "10:00 AM",
+        "venue": "Computer Lab 1",
+        "description": "Learn SQL and database management concepts.",
+        "organizer": "IT Department",
+        "capacity": 50
+    },
+    {
+        "id": 13,
+        "title": "Robotics Competition",
+        "category": "Competition",
+        "date": "2026-11-12",
+        "time": "09:00 AM",
+        "venue": "Robotics Lab",
+        "description": "Participate in an exciting robotics competition.",
+        "organizer": "Robotics Club",
+        "capacity": 40
+    },
+    {
+        "id": 14,
+        "title": "NPTEL Awareness Session",
+        "category": "Seminar",
+        "date": "2026-11-15",
+        "time": "12:00 PM",
+        "venue": "Seminar Hall",
+        "description": "Learn about NPTEL courses and certification.",
+        "organizer": "NPTEL Local Chapter",
+        "capacity": 200
+    },
+    {
+        "id": 15,
+        "title": "Project Exhibition",
+        "category": "Exhibition",
+        "date": "2026-11-20",
+        "time": "10:00 AM",
+        "venue": "Main Auditorium",
+        "description": "Students showcase their innovative academic projects.",
+        "organizer": "Academic Department",
+        "capacity": 250
+    }
+]

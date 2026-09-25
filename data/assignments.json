@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": "Web Development Assignment",
+    "subject": "Web Development",
+    "description": "Create a responsive Student Registration page using HTML and CSS.",
+    "dueDate": "2026-10-05",
+    "teacher": "Prof. Patel",
+    "status": "Open"
+  },
+  {
+    "id": 2,
+    "title": "Java OOP Assignment",
+    "subject": "Java",
+    "description": "Implement inheritance, method overriding and polymorphism in Java.",
+    "dueDate": "2026-10-08",
+    "teacher": "Prof. Shah",
+    "status": "Open"
+  },
+  {
+    "id": 3,
+    "title": "DSA Searching Assignment",
+    "subject": "DSA",
+    "description": "Implement Linear Search and Binary Search with proper complexity analysis.",
+    "dueDate": "2026-10-10",
+    "teacher": "Prof. Mehta",
+    "status": "Open"
+  },
+  {
+    "id": 4,
+    "title": "Computer Networks Assignment",
+    "subject": "Computer Networks",
+    "description": "Explain IPv4 addressing and subnetting with suitable examples.",
+    "dueDate": "2026-10-12",
+    "teacher": "Prof. Desai",
+    "status": "Open"
+  },
+  {
+    "id": 5,
+    "title": "Operating System Assignment",
+    "subject": "Operating System",
+    "description": "Write a program using POSIX threads and explain thread creation.",
+    "dueDate": "2026-10-15",
+    "teacher": "Prof. Joshi",
+    "status": "Open"
+  },
+  {
+    "id": 6,
+    "title": "Database Assignment",
+    "subject": "DBMS",
+    "description": "Create SQL queries using SELECT, JOIN, GROUP BY and ORDER BY.",
+    "dueDate": "2026-10-18",
+    "teacher": "Prof. Patel",
+    "status": "Open"
+  },
+  {
+    "id": 7,
+    "title": "JavaScript DOM Assignment",
+    "subject": "Web Development",
+    "description": "Create a dynamic FAQ page using JavaScript DOM manipulation.",
+    "dueDate": "2026-10-20",
+    "teacher": "Prof. Shah",
+    "status": "Open"
+  },
+  {
+    "id": 8,
+    "title": "Linked List Assignment",
+    "subject": "DSA",
+    "description": "Implement insertion, deletion, searching and traversal of a singly linked list.",
+    "dueDate": "2026-10-22",
+    "teacher": "Prof. Mehta",
+    "status": "Open"
+  },
+  {
+    "id": 9,
+    "title": "Routing Assignment",
+    "subject": "Computer Networks",
+    "description": "Explain static routing and dynamic routing with examples.",
+    "dueDate": "2026-10-25",
+    "teacher": "Prof. Desai",
+    "status": "Open"
+  },
+  {
+    "id": 10,
+    "title": "Exception Handling Assignment",
+    "subject": "Java",
+    "description": "Create a Java program demonstrating try, catch, finally and custom exceptions.",
+    "dueDate": "2026-10-28",
+    "teacher": "Prof. Joshi",
+    "status": "Open"
+  },
+  {
+    "id": 11,
+    "title": "CSS Responsive Design",
+    "subject": "Web Development",
+    "description": "Create a responsive dashboard using CSS Flexbox and Grid.",
+    "dueDate": "2026-11-01",
+    "teacher": "Prof. Patel",
+    "status": "Open"
+  },
+  {
+    "id": 12,
+    "title": "Stack Implementation",
+    "subject": "DSA",
+    "description": "Implement stack operations using arrays and linked lists.",
+    "dueDate": "2026-11-04",
+    "teacher": "Prof. Mehta",
+    "status": "Open"
+  },
+  {
+    "id": 13,
+    "title": "Process Management",
+    "subject": "Operating System",
+    "description": "Explain process states, PCB and process scheduling algorithms.",
+    "dueDate": "2026-11-07",
+    "teacher": "Prof. Joshi",
+    "status": "Open"
+  },
+  {
+    "id": 14,
+    "title": "SQL Database Design",
+    "subject": "DBMS",
+    "description": "Design a database schema for a college management system.",
+    "dueDate": "2026-11-10",
+    "teacher": "Prof. Shah",
+    "status": "Open"
+  },
+  {
+    "id": 15,
+    "title": "Fetch API Assignment",
+    "subject": "Web Development",
+    "description": "Fetch JSON data using Fetch API and display it dynamically.",
+    "dueDate": "2026-11-15",
+    "teacher": "Prof. Patel",
+    "status": "Open"
+  }
+]

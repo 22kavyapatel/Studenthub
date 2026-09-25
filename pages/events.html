@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events - StudentHub</title>
+
+    <!-- Your existing StudentHub CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Practical 6 CSS -->
+    <link rel="stylesheet" href="../css/practical6.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            StudentHub
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="notices.html">Notices</a>
+            <a href="profile.html">Profile</a>
+        </div>
+    </nav>
+
+
+    <main class="events-container">
+
+        <div class="events-header">
+            <h1>College Events</h1>
+            <p>View and participate in upcoming college events.</p>
+        </div>
+
+
+        <!-- Role -->
+        <div class="role-box">
+            Current Role:
+            <span id="userRole">Loading...</span>
+        </div>
+
+
+        <!-- Controls -->
+        <div class="event-controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search events..."
+            >
+
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+            </select>
+
+            <select id="sortSelect">
+                <option value="dateAsc">Date: Earliest First</option>
+                <option value="dateDesc">Date: Latest First</option>
+                <option value="titleAsc">Title: A-Z</option>
+                <option value="titleDesc">Title: Z-A</option>
+            </select>
+
+        </div>
+
+
+        <!-- Error -->
+        <div
+            id="errorMessage"
+            class="error-message">
+        </div>
+
+
+        <!-- Loading -->
+        <div
+            id="loading"
+            class="loading">
+            Loading events...
+        </div>
+
+
+        <!-- Events -->
+        <div
+            id="eventsGrid"
+            class="events-grid">
+        </div>
+
+
+        <!-- Pagination -->
+        <div
+            id="pagination"
+            class="pagination">
+        </div>
+
+    </main>
+
+
+    <script src="../js/events.js"></script>
+
+</body>
+</html>

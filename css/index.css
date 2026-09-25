@@ -1,0 +1,691 @@
+/* ================= HERO ================= */
+
+.hero{
+    width:90%;
+    margin:70px auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:70px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.hero-badge{
+    display:inline-block;
+    padding:10px 18px;
+    background:#eef2ff;
+    color:#4f46e5;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+.hero-content h1{
+    font-size:65px;
+    line-height:1.1;
+    color:#111827;
+    margin-bottom:25px;
+}
+
+.hero-content p{
+    font-size:20px;
+    color:#6b7280;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.hero-image{
+    flex:1;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:22px;
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+/* ================= SECTION TITLE ================= */
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:46px;
+    color:#111827;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#6b7280;
+    font-size:19px;
+}
+
+/* ================= CAMPUS ================= */
+
+.campus{
+    width:90%;
+    margin:100px auto;
+}
+
+.campus-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.campus-card{
+    background:#fff;
+    padding:35px;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    transition:.35s;
+}
+
+.campus-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+.campus-icon{
+    width:70px;
+    height:70px;
+    background:#eef2ff;
+    color:#4f46e5;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    margin-bottom:25px;
+}
+
+.campus-card h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.campus-card p{
+    color:#6b7280;
+    line-height:1.7;
+}
+/* ================= ROLES ================= */
+
+.roles{
+    width:90%;
+    margin:100px auto;
+}
+
+.role-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.role-card{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:35px;
+    transition:.35s;
+}
+
+.role-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+.role-icon{
+    width:70px;
+    height:70px;
+    background:#eef2ff;
+    color:#4f46e5;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+    margin-bottom:25px;
+}
+
+.role-card h3{
+    font-size:28px;
+    margin-bottom:20px;
+    color:#111827;
+}
+
+.role-card ul{
+    padding-left:20px;
+}
+
+.role-card li{
+    margin-bottom:12px;
+    color:#6b7280;
+    font-size:17px;
+}
+
+/* ================= EVENTS ================= */
+
+.events{
+    width:90%;
+    margin:100px auto;
+}
+
+.events-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.events-header h2{
+    font-size:42px;
+    color:#111827;
+}
+
+.events-header a{
+    text-decoration:none;
+    color:#4f46e5;
+    font-weight:600;
+}
+
+.event-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.event-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #e5e7eb;
+    transition:.35s;
+}
+
+.event-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+.event-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.event-content{
+    padding:25px;
+}
+
+.event-content h3{
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.event-content p{
+    color:#6b7280;
+    margin-bottom:10px;
+    line-height:1.6;
+}
+
+.event-content button{
+    margin-top:15px;
+    padding:12px 24px;
+    background:#4f46e5;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.event-content button:hover{
+    background:#3730a3;
+}
+/* ================= FEATURES ================= */
+
+.features{
+    width:90%;
+    margin:100px auto;
+}
+
+.feature-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.feature-card{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    transition:.35s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 20px;
+    border-radius:18px;
+    background:#eef2ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+}
+
+.feature-card h3{
+    margin-bottom:15px;
+    font-size:24px;
+    color:#111827;
+}
+
+.feature-card p{
+    color:#6b7280;
+    line-height:1.7;
+}
+
+/* ================= BUTTON IMPROVEMENTS ================= */
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-dark{
+    background:#4f46e5;
+    color:#fff;
+    border:2px solid #4f46e5;
+}
+
+.btn-dark:hover{
+    background:#3730a3;
+    border-color:#3730a3;
+}
+
+.btn-light{
+    background:#fff;
+    color:#4f46e5;
+    border:2px solid #4f46e5;
+}
+
+.btn-light:hover{
+    background:#4f46e5;
+    color:#fff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+.hero{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.campus-container{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.role-container{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.event-container{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.feature-container{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.hero-content h1{
+    font-size:50px;
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar{
+    padding:20px;
+    flex-direction:column;
+    gap:20px;
+}
+
+nav{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero{
+    gap:40px;
+}
+
+.hero-content h1{
+    font-size:38px;
+}
+
+.hero-content p{
+    font-size:17px;
+}
+
+.hero-buttons{
+    flex-direction:column;
+    align-items:center;
+}
+
+.hero-buttons .btn{
+    width:220px;
+    text-align:center;
+}
+
+.campus-container,
+.role-container,
+.event-container,
+.feature-container{
+    grid-template-columns:1fr;
+}
+
+.events-header{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+}
+
+footer{
+    flex-direction:column;
+    text-align:center;
+    gap:15px;
+}
+
+.footer-links{
+    flex-direction:column;
+    gap:10px;
+}
+
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+section{
+    animation:fadeUp .7s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+    opacity:0;
+    transform:translateY(40px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
+/* =========================================
+   DARK MODE - HOME PAGE
+   ========================================= */
+
+body.dark-mode .hero-content h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .hero-content p {
+    color: #d1d5db;
+}
+
+body.dark-mode .hero-badge {
+    background: #312e81;
+    color: #c7d2fe;
+}
+
+
+/* SECTION TITLES */
+
+body.dark-mode .section-title h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .section-title p {
+    color: #d1d5db;
+}
+
+
+/* CAMPUS */
+
+body.dark-mode .campus-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .campus-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .campus-card p {
+    color: #d1d5db;
+}
+
+body.dark-mode .campus-icon {
+    background: #312e81;
+    color: #c7d2fe;
+}
+
+
+/* ROLES */
+
+body.dark-mode .role-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .role-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .role-card li {
+    color: #d1d5db;
+}
+
+body.dark-mode .role-icon {
+    background: #312e81;
+    color: #c7d2fe;
+}
+
+
+/* EVENTS */
+
+body.dark-mode .events-header h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .event-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .event-content h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .event-content p {
+    color: #d1d5db;
+}
+
+
+/* FEATURES */
+
+body.dark-mode .feature-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .feature-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .feature-card p {
+    color: #d1d5db;
+}
+
+body.dark-mode .icon {
+    background: #312e81;
+}
+
+
+/* SMOOTH THEME CHANGE */
+
+body,
+.navbar,
+footer,
+.campus-card,
+.role-card,
+.event-card,
+.feature-card,
+.theme-btn {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+/* ================= DARK THEME ================= */
+
+body.dark-theme {
+    background: #111827;
+    color: #f9fafb;
+}
+
+
+/* Navbar */
+
+body.dark-theme .navbar {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-theme .logo span {
+    color: #ffffff;
+}
+
+body.dark-theme nav a {
+    color: #f9fafb;
+}
+
+
+/* General headings */
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4 {
+    color: #f9fafb;
+}
+
+
+/* Paragraphs */
+
+body.dark-theme p {
+    color: #d1d5db;
+}
+
+
+/* Cards */
+
+body.dark-theme .card,
+body.dark-theme .panel,
+body.dark-theme .campus-card,
+body.dark-theme .role-card,
+body.dark-theme .event-card,
+body.dark-theme .feature-card,
+body.dark-theme .mission-card,
+body.dark-theme .feature-box,
+body.dark-theme .user-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+
+/* Buttons */
+
+body.dark-theme .btn-light {
+    background: #1f2937;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+
+/* Footer */
+
+body.dark-theme footer {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-theme .footer-links a {
+    color: #d1d5db;
+}
+
+
+/* About page */
+
+body.dark-theme .intro-visual {
+    background: #1e1b4b;
+}
+
+body.dark-theme .visual-card {
+    background: #1f2937;
+}
+
+body.dark-theme .visual-card strong {
+    color: #ffffff;
+}
+
+body.dark-theme .why-item {
+    border-color: #374151;
+}
+
+body.dark-theme .user-section {
+    background: #0f172a;
+}
+
+body.dark-theme .step-line {
+    background: #6366f1;
+}
+
+
+/* Links */
+
+body.dark-theme a {
+    color: #a5b4fc;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - StudentHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h1>StudentHub</h1>
+            <p>Admin Portal</p>
+        </div>
+
+        <div class="welcome-box">
+            <p>Welcome back,</p>
+            <strong>admin</strong>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="#">
+                👥 Students
+            </a>
+
+            <a href="#">
+                🎓 Teachers
+            </a>
+
+            <a href="admin-assignments.html">
+                📝 Assignments
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="logout">
+            Logout
+        </a>
+        <a href="events.html">🎉 Events</a>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <h2 class="page-title">Admin Dashboard</h2>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>Total Students</p>
+                <h3 class="blue">3</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Total Teachers</p>
+                <h3 class="green">3</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Total Assignments</p>
+                <h3 class="purple">3</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Avg GPA</p>
+                <h3 class="orange">3.50</h3>
+            </div>
+
+            <div class="stat-card">
+                <p>Avg Attendance</p>
+                <h3 class="violet">90%</h3>
+            </div>
+
+        </section>
+
+
+        <!-- LOWER SECTION -->
+        <section class="dashboard-grid">
+
+            <!-- RECENT STUDENTS -->
+            <div class="dashboard-card">
+
+                <h2>Recent Students</h2>
+
+                <div class="student-item">
+
+                    <div>
+                        <h3>Patel Kavya</h3>
+                        <p>kavya@example.com</p>
+                    </div>
+
+                    <strong>GPA: 3.8</strong>
+
+                </div>
+
+
+                <div class="student-item">
+
+                    <div>
+                        <h3>Kumud patil</h3>
+                        <p>kumud@example.com</p>
+                    </div>
+
+                    <strong>GPA: 3.5</strong>
+
+                </div>
+
+
+                <div class="student-item">
+
+                    <div>
+                        <h3>Diya Khalasi</h3>
+                        <p>Diya@example.com</p>
+                    </div>
+
+                    <strong>GPA: 3.2</strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- TEACHERS -->
+            <div class="dashboard-card">
+
+                <h2>Teachers</h2>
+
+                <div class="teacher-item">
+
+                    <h3>Dr. Ahmed Hassan</h3>
+                    <p>Computer Networks</p>
+                    <p>dr.ahmed@example.com</p>
+
+                </div>
+
+
+                <div class="teacher-item">
+
+                    <h3>Prof. Amina Khan</h3>
+                    <p>Web Development</p>
+                    <p>prof.amina@example.com</p>
+
+                </div>
+
+
+                <div class="teacher-item">
+
+                    <h3>Dr. Rashid Ali</h3>
+                    <p>Database Management</p>
+                    <p>dr.rashid@example.com</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<script src="../js/auth.js"></script>
+<script src="../js/theme.js"></script>
+</body>
+</html>

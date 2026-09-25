@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - StudentHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="dashboard-navbar">
+
+        <div class="dashboard-logo">
+            StudentHub
+        </div>
+
+        <div class="dashboard-nav-links">
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="events.html">Events</a>
+
+            <a href="assignments.html">Assignments</a>
+
+            <a href="notices.html">Notices</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="login.html" class="logout-link">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-container">
+
+        <!-- Welcome -->
+
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <p class="small-text">
+                    Welcome back,
+                </p>
+
+                <h1 id="welcomeName">
+                    User
+                </h1>
+
+                <p id="welcomeMessage">
+                    Here is your StudentHub dashboard.
+                </p>
+
+            </div>
+
+
+            <div class="role-display">
+
+                <span>
+                    Role
+                </span>
+
+                <strong id="userRole">
+                    Loading...
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD CARDS -->
+
+        <section>
+
+            <h2 class="section-title">
+                Quick Access
+            </h2>
+
+            <div
+                id="dashboardCards"
+                class="dashboard-cards">
+            </div>
+
+        </section>
+
+
+        <!-- ROLE INFORMATION -->
+
+        <section class="role-section">
+
+            <h2 class="section-title">
+                Your Dashboard
+            </h2>
+
+            <div id="roleContent">
+                Loading...
+            </div>
+
+        </section>
+
+
+        <!-- RECENT ACTIVITY -->
+
+        <section class="activity-section">
+
+            <h2 class="section-title">
+                Recent Activity
+            </h2>
+
+            <div class="activity-box">
+
+                <div class="activity-item">
+
+                    <span class="activity-icon">
+                        📚
+                    </span>
+
+                    <div>
+                        <strong>
+                            Assignments
+                        </strong>
+
+                        <p>
+                            Manage and view your assignments.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <span class="activity-icon">
+                        🎉
+                    </span>
+
+                    <div>
+                        <strong>
+                            Events
+                        </strong>
+
+                        <p>
+                            View upcoming college events.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <span class="activity-icon">
+                        📢
+                    </span>
+
+                    <div>
+                        <strong>
+                            Notices
+                        </strong>
+
+                        <p>
+                            Check the latest college notices.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

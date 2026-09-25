@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teacher Dashboard - StudentHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/teacher-dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h2>StudentHub</h2>
+            <p>Teacher Portal</p>
+        </div>
+
+        <div class="welcome-box">
+            <p>Welcome back,</p>
+            <strong>teacher</strong>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="teacher-dashboard.html" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="assignments.html">
+                📝 Manage Assignments
+            </a>
+
+            <a href="teacher-attendance.html">
+                ✅ Attendance
+            </a>
+
+            <a href="teacher-notices.html">
+                📢 Notices
+            </a>
+            
+            <a href="events.html">🎉 Events</a>
+        </nav>
+
+        <a href="login.html" class="logout">
+            Logout
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <h1>Teacher Dashboard</h1>
+
+
+        <!-- STAT CARDS -->
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <span>Total Students</span>
+                <strong class="blue">3</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Total Assignments</span>
+                <strong class="purple">3</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Submissions</span>
+                <strong class="orange">1</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Graded</span>
+                <strong class="green">1</strong>
+            </div>
+
+        </div>
+
+
+        <!-- LOWER SECTION -->
+        <div class="dashboard-grid">
+
+
+            <!-- RECENT ASSIGNMENTS -->
+            <section class="dashboard-card">
+
+                <h2>Recent Assignments</h2>
+
+                <div class="assignment-item">
+
+                    <div>
+                        <h3>Network Protocols Assignment</h3>
+                        <p>Due: 8/15/2026</p>
+                        <span>Computer Networks</span>
+                    </div>
+
+                    <b class="pending">pending</b>
+
+                </div>
+
+
+                <div class="assignment-item">
+
+                    <div>
+                        <h3>HTML/CSS Project</h3>
+                        <p>Due: 8/20/2026</p>
+                        <span>Web Development</span>
+                    </div>
+
+                    <b class="submitted">submitted</b>
+
+                </div>
+
+
+                <div class="assignment-item">
+
+                    <div>
+                        <h3>Database Queries Assignment</h3>
+                        <p>Due: 8/25/2026</p>
+                        <span>Database Management</span>
+                    </div>
+
+                    <b class="graded">graded</b>
+
+                </div>
+
+            </section>
+
+
+            <!-- STUDENTS -->
+            <section class="dashboard-card">
+
+                <h2>Students</h2>
+
+                <div class="student-item">
+
+                    <div>
+                        <h3>Ali Ahmed</h3>
+                        <p>Semester 3</p>
+                    </div>
+
+                    <strong>GPA: 3.8</strong>
+
+                </div>
+
+
+                <div class="student-item">
+
+                    <div>
+                        <h3>Fatima Khan</h3>
+                        <p>Semester 2</p>
+                    </div>
+
+                    <strong>GPA: 3.5</strong>
+
+                </div>
+
+
+                <div class="student-item">
+
+                    <div>
+                        <h3>Hassan Ali</h3>
+                        <p>Semester 4</p>
+                    </div>
+
+                    <strong>GPA: 3.2</strong>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="../js/auth.js"></script>
+<script src="../js/teacher-dashboard.js"></script>
+<script src="../js/theme.js"></script>
+</body>
+</html>

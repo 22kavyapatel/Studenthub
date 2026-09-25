@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <img src="imsges/logo.png" alt="Logo">
+            <span>StudentHub</span>
+        </div>
+        <button id="themeToggle" class="theme-btn"> Dark</button>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="pages/about.html">About</a>
+            <a href="pages/events.html"
+   onclick="checkLogin(event, 'pages/events.html')">
+    Events
+</a>
+            <a href="pages/notices.html">Notices</a>
+            <a href="pages/contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="pages/login.html" class="btn btn-light">Login</a>
+            <a href="pages/register.html" class="btn btn-dark">Register</a>
+        </div>
+
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ● College Management Portal
+            </div>
+
+            <h1>
+                One portal for your <br>
+                entire campus
+            </h1>
+
+            <p>
+                StudentHub brings attendance, assignments,
+                notices and profiles together in a single,
+                role-based platform for students,
+                teachers and administrators.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="pages/register.html" class="btn btn-dark">
+                    Get Started →
+                </a>
+
+                <a href="pages/about.html" class="btn btn-light">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="imsges/college.jpg" alt="College">
+        </div>
+
+    </section>
+
+    <!-- ================= CAMPUS SECTION ================= -->
+
+    <section class="campus">
+
+        <div class="section-title">
+
+            <h2>Everything a campus needs</h2>
+
+            <p>
+                Simple tools that keep everyone on the same page,
+                from the first lecture to final results.
+            </p>
+
+        </div>
+
+        <div class="campus-container">
+
+            <div class="campus-card">
+
+                <div class="campus-icon">📅</div>
+
+                <h3>Attendance Tracking</h3>
+
+                <p>
+                    Students view subject-wise attendance while teachers
+                    mark it in seconds.
+                </p>
+
+            </div>
+
+            <div class="campus-card">
+
+                <div class="campus-icon">📝</div>
+
+                <h3>Assignments</h3>
+
+                <p>
+                    Publish, submit and track assignments
+                    with clear due dates and status.
+                </p>
+
+            </div>
+
+            <div class="campus-card">
+
+                <div class="campus-icon">📚</div>
+
+                <h3>Notices & Updates</h3>
+
+                <p>
+                    Exam schedules, events and holidays
+                    delivered to the right students.
+                </p>
+
+            </div>
+
+            <div class="campus-card">
+
+                <div class="campus-icon">🛡️</div>
+
+                <h3>Role-Based Access</h3>
+
+                <p>
+                    Separate secure dashboards
+                    for students, teachers and administrators.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= ROLES ================= -->
+
+    <section class="roles">
+
+        <div class="section-title">
+
+            <h2>Built for every role</h2>
+
+            <p>
+                Each user gets a focused dashboard with exactly
+                the tools they need.
+            </p>
+
+        </div>
+
+        <div class="role-container">
+
+            <div class="role-card">
+
+                <div class="role-icon">🎓</div>
+
+                <h3>Students</h3>
+
+                <ul>
+                    <li>Check attendance</li>
+                    <li>Submit assignments</li>
+                    <li>Read notices</li>
+                    <li>Manage profile</li>
+                </ul>
+
+            </div>
+
+            <div class="role-card">
+
+                <div class="role-icon">👨‍🏫</div>
+
+                <h3>Teachers</h3>
+
+                <ul>
+                    <li>Mark attendance</li>
+                    <li>Manage assignments</li>
+                    <li>Post notices</li>
+                    <li>Track submissions</li>
+                </ul>
+
+            </div>
+
+            <div class="role-card">
+
+                <div class="role-icon">👨‍💼</div>
+
+                <h3>Admins</h3>
+
+                <ul>
+                    <li>Manage students</li>
+                    <li>Manage teachers</li>
+                    <li>Oversee attendance</li>
+                    <li>Control assignments</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= EVENTS ================= -->
+
+    <section class="events">
+
+        <div class="events-header">
+            <h2>Upcoming Events</h2>
+            <a href="pages/events.html">View All Events →</a>
+        </div>
+
+        <div class="event-container">
+
+            <div class="event-card">
+
+                <img src="imsges/event1.jpg" alt="">
+
+                <div class="event-content">
+
+                    <h3>Tech Talk 2026</h3>
+
+                    <p>📅 25 Aug 2026</p>
+
+                    <p>📍 Seminar Hall</p>
+
+                    <p>Latest trends in AI and Web Development.</p>
+
+                    <button>View Details</button>
+
+                </div>
+
+            </div>
+
+            <div class="event-card">
+
+                <img src="imsges/event2.jpg" alt="">
+
+                <div class="event-content">
+
+                    <h3>Coding Contest</h3>
+
+                    <p>📅 5 Sep 2026</p>
+
+                    <p>📍 Lab 1</p>
+
+                    <p>Show your coding skills and win prizes.</p>
+
+                    <button>View Details</button>
+
+                </div>
+
+            </div>
+
+            <div class="event-card">
+
+                <img src="imsges/event3.jpg" alt="">
+
+                <div class="event-content">
+
+                    <h3>Career Guidance</h3>
+
+                    <p>📅 15 Sep 2026</p>
+
+                    <p>📍 Auditorium</p>
+
+                    <p>Get insights on placements and internships.</p>
+
+                    <button>View Details</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>© 2026 StudentHub. Government Girls Polytechnic, Surat</p>
+
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+
+    </footer>
+      <script src="js/theme.js"></script>
+      <div id="loginPopup" class="login-popup">
+
+    <div class="login-popup-box">
+
+        <button class="close-popup" onclick="closeLoginPopup()">
+            ×
+        </button>
+
+        <div class="popup-icon">
+            🔐
+        </div>
+
+        <h2>Login Required</h2>
+
+        <p>
+            Please login first to access this page.
+        </p>
+
+        <div class="popup-buttons">
+
+            <a href="pages/login.html" class="btn btn-dark">
+                Login Now
+            </a>
+
+            <button class="btn btn-light" onclick="closeLoginPopup()">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+
+</html>
