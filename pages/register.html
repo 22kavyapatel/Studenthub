@@ -1,42 +1,81 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Register | StudentHub</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/register.css">
+
 </head>
 
+
 <body>
+
 
     <!-- ================= NAVBAR ================= -->
 
     <header class="navbar">
 
         <div class="logo">
-            <img src="../imsges/logo.png" alt="StudentHub Logo">
+
+            <img
+                src="../imsges/logo.png"
+                alt="StudentHub Logo"
+            >
+
             <span>StudentHub</span>
+
         </div>
 
+
         <nav>
-            <a href="../index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="events.html">Events</a>
-            <a href="notices.html">Notices</a>
-            <a href="contact.html">Contact</a>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="events.html">
+                Events
+            </a>
+
+            <a href="notices.html">
+                Notices
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
         </nav>
+
 
         <div class="nav-buttons">
 
-            <button id="themeToggle" class="theme-btn">
+            <button
+                id="themeToggle"
+                class="theme-btn"
+                type="button"
+            >
                 🌙 Dark
             </button>
 
-            <a href="login.html" class="btn btn-light">
+
+            <a
+                href="login.html"
+                class="btn btn-light"
+            >
                 Login
             </a>
 
@@ -45,9 +84,11 @@
     </header>
 
 
+
     <!-- ================= REGISTER ================= -->
 
     <main class="register-page">
+
 
         <div class="register-header">
 
@@ -62,7 +103,16 @@
         </div>
 
 
-        <form id="registrationForm" novalidate>
+
+        <!-- IMPORTANT -->
+
+        <form
+            id="registrationForm"
+            action="../php/process_register.php"
+            method="POST"
+            novalidate
+        >
+
 
             <!-- ================= ROLE ================= -->
 
@@ -71,6 +121,7 @@
                 <label class="role-title">
                     Register As
                 </label>
+
 
                 <div class="role-options">
 
@@ -109,6 +160,7 @@
             </div>
 
 
+
             <!-- ================= NAME ================= -->
 
             <div class="form-group">
@@ -117,17 +169,24 @@
                     Full Name
                 </label>
 
+
                 <input
                     type="text"
                     id="name"
+                    name="name"
                     placeholder="Enter your full name"
                     autocomplete="name"
                     required
                 >
 
-                <small id="nameError" class="error"></small>
+
+                <small
+                    id="nameError"
+                    class="error"
+                ></small>
 
             </div>
+
 
 
             <!-- ================= EMAIL ================= -->
@@ -138,17 +197,24 @@
                     Email Address
                 </label>
 
+
                 <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="example@gmail.com"
                     autocomplete="email"
                     required
                 >
 
-                <small id="emailError" class="error"></small>
+
+                <small
+                    id="emailError"
+                    class="error"
+                ></small>
 
             </div>
+
 
 
             <!-- ================= MOBILE ================= -->
@@ -159,25 +225,34 @@
                     Mobile Number
                 </label>
 
+
                 <input
                     type="tel"
                     id="mobile"
+                    name="mobile"
                     placeholder="Enter 10 digit mobile number"
                     maxlength="10"
                     autocomplete="tel"
                     required
                 >
 
-                <small id="mobileError" class="error"></small>
+
+                <small
+                    id="mobileError"
+                    class="error"
+                ></small>
 
             </div>
+
 
 
             <!-- ================= STUDENT FIELDS ================= -->
 
             <div id="studentFields">
 
+
                 <div class="form-row">
+
 
                     <!-- COURSE -->
 
@@ -187,7 +262,11 @@
                             Course
                         </label>
 
-                        <select id="course">
+
+                        <select
+                            id="course"
+                            name="course"
+                        >
 
                             <option value="">
                                 Select Course
@@ -211,9 +290,14 @@
 
                         </select>
 
-                        <small id="courseError" class="error"></small>
+
+                        <small
+                            id="courseError"
+                            class="error"
+                        ></small>
 
                     </div>
+
 
 
                     <!-- YEAR -->
@@ -224,7 +308,11 @@
                             Year
                         </label>
 
-                        <select id="year">
+
+                        <select
+                            id="year"
+                            name="year"
+                        >
 
                             <option value="">
                                 Select Year
@@ -248,7 +336,11 @@
 
                         </select>
 
-                        <small id="yearError" class="error"></small>
+
+                        <small
+                            id="yearError"
+                            class="error"
+                        ></small>
 
                     </div>
 
@@ -257,11 +349,17 @@
             </div>
 
 
+
             <!-- ================= TEACHER FIELDS ================= -->
 
-            <div id="teacherFields" class="hidden">
+            <div
+                id="teacherFields"
+                class="hidden"
+            >
+
 
                 <div class="form-row">
+
 
                     <!-- DEPARTMENT -->
 
@@ -271,7 +369,11 @@
                             Department
                         </label>
 
-                        <select id="department">
+
+                        <select
+                            id="department"
+                            name="department"
+                        >
 
                             <option value="">
                                 Select Department
@@ -295,9 +397,14 @@
 
                         </select>
 
-                        <small id="departmentError" class="error"></small>
+
+                        <small
+                            id="departmentError"
+                            class="error"
+                        ></small>
 
                     </div>
+
 
 
                     <!-- QUALIFICATION -->
@@ -308,7 +415,11 @@
                             Qualification
                         </label>
 
-                        <select id="qualification">
+
+                        <select
+                            id="qualification"
+                            name="qualification"
+                        >
 
                             <option value="">
                                 Select Qualification
@@ -332,13 +443,18 @@
 
                         </select>
 
-                        <small id="qualificationError" class="error"></small>
+
+                        <small
+                            id="qualificationError"
+                            class="error"
+                        ></small>
 
                     </div>
 
                 </div>
 
             </div>
+
 
 
             <!-- ================= GENDER ================= -->
@@ -349,40 +465,57 @@
                     Gender
                 </legend>
 
+
                 <div class="gender-options">
 
                     <label>
+
                         <input
                             type="radio"
                             name="gender"
                             value="Male"
                         >
+
                         Male
+
                     </label>
 
+
                     <label>
+
                         <input
                             type="radio"
                             name="gender"
                             value="Female"
                         >
+
                         Female
+
                     </label>
 
+
                     <label>
+
                         <input
                             type="radio"
                             name="gender"
                             value="Other"
                         >
+
                         Other
+
                     </label>
 
                 </div>
 
-                <small id="genderError" class="error"></small>
+
+                <small
+                    id="genderError"
+                    class="error"
+                ></small>
 
             </fieldset>
+
 
 
             <!-- ================= PASSWORD ================= -->
@@ -393,25 +526,36 @@
                     Password
                 </label>
 
+
                 <input
                     type="password"
                     id="password"
+                    name="password"
                     placeholder="Create a strong password"
                     autocomplete="new-password"
                     required
                 >
 
+
                 <div class="strength-bar">
+
                     <div id="strengthFill"></div>
+
                 </div>
+
 
                 <small id="passwordStrength">
                     Password strength: Not entered
                 </small>
 
-                <small id="passwordError" class="error"></small>
+
+                <small
+                    id="passwordError"
+                    class="error"
+                ></small>
 
             </div>
+
 
 
             <!-- ================= CONFIRM PASSWORD ================= -->
@@ -422,13 +566,16 @@
                     Confirm Password
                 </label>
 
+
                 <input
                     type="password"
                     id="confirmPassword"
+                    name="confirmPassword"
                     placeholder="Re-enter your password"
                     autocomplete="new-password"
                     required
                 >
+
 
                 <small
                     id="confirmPasswordError"
@@ -436,6 +583,7 @@
                 ></small>
 
             </div>
+
 
 
             <!-- ================= TERMS ================= -->
@@ -447,6 +595,8 @@
                     <input
                         type="checkbox"
                         id="terms"
+                        name="terms"
+                        value="accepted"
                         required
                     >
 
@@ -456,9 +606,14 @@
 
                 </label>
 
-                <small id="termsError" class="error"></small>
+
+                <small
+                    id="termsError"
+                    class="error"
+                ></small>
 
             </div>
+
 
 
             <!-- ================= BUTTON ================= -->
@@ -481,9 +636,11 @@
 
             </p>
 
+
         </form>
 
     </main>
+
 
 
     <!-- ================= FOOTER ================= -->
@@ -497,9 +654,13 @@
     </footer>
 
 
+
     <script src="../js/theme.js"></script>
+
     <script src="../js/register.js"></script>
+
 
 </body>
 
 </html>
+

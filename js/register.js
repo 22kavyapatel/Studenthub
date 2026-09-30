@@ -11,26 +11,16 @@ const mobileInput = document.getElementById("mobile");
 const courseInput = document.getElementById("course");
 const yearInput = document.getElementById("year");
 
-const departmentInput =
-    document.getElementById("department");
+const departmentInput = document.getElementById("department");
+const qualificationInput = document.getElementById("qualification");
 
-const qualificationInput =
-    document.getElementById("qualification");
+const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
 
-const passwordInput =
-    document.getElementById("password");
+const termsInput = document.getElementById("terms");
 
-const confirmPasswordInput =
-    document.getElementById("confirmPassword");
-
-const termsInput =
-    document.getElementById("terms");
-
-const studentFields =
-    document.getElementById("studentFields");
-
-const teacherFields =
-    document.getElementById("teacherFields");
+const studentFields = document.getElementById("studentFields");
+const teacherFields = document.getElementById("teacherFields");
 
 
 /* =========================
@@ -39,11 +29,9 @@ const teacherFields =
 
 const nameRegex = /^[A-Za-z ]{2,50}$/;
 
-const emailRegex =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const mobileRegex =
-    /^[6-9][0-9]{9}$/;
+const mobileRegex = /^[6-9][0-9]{9}$/;
 
 
 /* =========================
@@ -51,11 +39,9 @@ const mobileRegex =
 ========================= */
 
 function getRole() {
-
-    const selected =
-        document.querySelector(
-            'input[name="role"]:checked'
-        );
+    const selected = document.querySelector(
+        'input[name="role"]:checked'
+    );
 
     return selected ? selected.value : "student";
 }
@@ -74,21 +60,17 @@ document
             if (getRole() === "student") {
 
                 studentFields.classList.remove("hidden");
-
                 teacherFields.classList.add("hidden");
 
             } else {
 
                 studentFields.classList.add("hidden");
-
                 teacherFields.classList.remove("hidden");
 
             }
 
             clearRoleErrors();
-
         });
-
     });
 
 
@@ -99,13 +81,9 @@ document
 function clearRoleErrors() {
 
     document.getElementById("courseError").textContent = "";
-
     document.getElementById("yearError").textContent = "";
-
     document.getElementById("departmentError").textContent = "";
-
     document.getElementById("qualificationError").textContent = "";
-
 }
 
 
@@ -116,12 +94,9 @@ function clearRoleErrors() {
 function showError(input, errorId, message) {
 
     input.classList.remove("valid");
-
     input.classList.add("invalid");
 
-    document.getElementById(errorId).textContent =
-        message;
-
+    document.getElementById(errorId).textContent = message;
 }
 
 
@@ -132,11 +107,9 @@ function showError(input, errorId, message) {
 function showSuccess(input, errorId) {
 
     input.classList.remove("invalid");
-
     input.classList.add("valid");
 
     document.getElementById(errorId).textContent = "";
-
 }
 
 
@@ -146,8 +119,7 @@ function showSuccess(input, errorId) {
 
 function validateName() {
 
-    const value =
-        nameInput.value.trim();
+    const value = nameInput.value.trim();
 
     if (value === "") {
 
@@ -183,8 +155,7 @@ function validateName() {
 
 function validateEmail() {
 
-    const value =
-        emailInput.value.trim();
+    const value = emailInput.value.trim();
 
     if (value === "") {
 
@@ -220,8 +191,7 @@ function validateEmail() {
 
 function validateMobile() {
 
-    const value =
-        mobileInput.value.trim();
+    const value = mobileInput.value.trim();
 
     if (value === "") {
 
@@ -335,18 +305,15 @@ function validateTeacherFields() {
 
 function validateGender() {
 
-    const gender =
-        document.querySelector(
-            'input[name="gender"]:checked'
-        );
+    const gender = document.querySelector(
+        'input[name="gender"]:checked'
+    );
 
-    const error =
-        document.getElementById("genderError");
+    const error = document.getElementById("genderError");
 
     if (!gender) {
 
-        error.textContent =
-            "Please select your gender.";
+        error.textContent = "Please select your gender.";
 
         return false;
     }
@@ -366,13 +333,9 @@ function getPasswordStrength(password) {
     let score = 0;
 
     if (password.length >= 8) score++;
-
     if (/[A-Z]/.test(password)) score++;
-
     if (/[a-z]/.test(password)) score++;
-
     if (/[0-9]/.test(password)) score++;
-
     if (/[^A-Za-z0-9]/.test(password)) score++;
 
     return score;
@@ -385,11 +348,9 @@ function getPasswordStrength(password) {
 
 function validatePassword() {
 
-    const password =
-        passwordInput.value;
+    const password = passwordInput.value;
 
-    const strength =
-        getPasswordStrength(password);
+    const strength = getPasswordStrength(password);
 
     const strengthText =
         document.getElementById("passwordStrength");
@@ -437,7 +398,6 @@ function validatePassword() {
             passwordInput,
             "passwordError"
         );
-
     }
 
 
@@ -461,7 +421,6 @@ function validatePassword() {
             "Password strength: Strong";
 
         strengthFill.style.width = "100%";
-
     }
 
 
@@ -478,11 +437,8 @@ function validatePassword() {
 
 function validateConfirmPassword() {
 
-    const password =
-        passwordInput.value;
-
-    const confirm =
-        confirmPasswordInput.value;
+    const password = passwordInput.value;
+    const confirm = confirmPasswordInput.value;
 
 
     if (confirm === "") {
@@ -527,6 +483,7 @@ function validateTerms() {
     const error =
         document.getElementById("termsError");
 
+
     if (!termsInput.checked) {
 
         error.textContent =
@@ -534,6 +491,7 @@ function validateTerms() {
 
         return false;
     }
+
 
     error.textContent = "";
 
@@ -587,9 +545,9 @@ passwordInput.addEventListener(
         validatePassword();
 
         if (confirmPasswordInput.value !== "") {
+
             validateConfirmPassword();
         }
-
     }
 );
 
@@ -603,6 +561,7 @@ termsInput.addEventListener(
     validateTerms
 );
 
+
 document
     .querySelectorAll('input[name="gender"]')
     .forEach(function (radio) {
@@ -611,7 +570,6 @@ document
             "change",
             validateGender
         );
-
     });
 
 
@@ -625,28 +583,16 @@ form.addEventListener(
 
         event.preventDefault();
 
+
         const role = getRole();
 
-        const validName =
-            validateName();
-
-        const validEmail =
-            validateEmail();
-
-        const validMobile =
-            validateMobile();
-
-        const validGender =
-            validateGender();
-
-        const validPassword =
-            validatePassword();
-
-        const validConfirm =
-            validateConfirmPassword();
-
-        const validTerms =
-            validateTerms();
+        const validName = validateName();
+        const validEmail = validateEmail();
+        const validMobile = validateMobile();
+        const validGender = validateGender();
+        const validPassword = validatePassword();
+        const validConfirm = validateConfirmPassword();
+        const validTerms = validateTerms();
 
         let validRoleFields;
 
@@ -660,9 +606,12 @@ form.addEventListener(
 
             validRoleFields =
                 validateTeacherFields();
-
         }
 
+
+        /* =========================
+           ALL VALID
+        ========================= */
 
         if (
             validName &&
@@ -676,71 +625,17 @@ form.addEventListener(
         ) {
 
             /*
-             * Temporary frontend storage.
-             * Later we will replace this with database code.
+             * IMPORTANT:
+             * Send the form to PHP
              */
 
-            const user = {
-
-                role: role,
-
-                name: nameInput.value.trim(),
-
-                email: emailInput.value.trim(),
-
-                mobile: mobileInput.value.trim(),
-
-                gender:
-                    document.querySelector(
-                        'input[name="gender"]:checked'
-                    ).value,
-
-                password:
-                    passwordInput.value
-
-            };
-
-
-            if (role === "student") {
-
-                user.course =
-                    courseInput.value;
-
-                user.year =
-                    yearInput.value;
-
-            } else {
-
-                user.department =
-                    departmentInput.value;
-
-                user.qualification =
-                    qualificationInput.value;
-
-            }
-
-
-            localStorage.setItem(
-                "studenthubUser",
-                JSON.stringify(user)
-            );
-
-
-            alert(
-                "Registration successful! You can now login."
-            );
-
-
-            window.location.href =
-                "login.html";
+            form.submit();
 
         } else {
 
             alert(
                 "Please correct the errors in the form."
             );
-
         }
-
     }
 );
