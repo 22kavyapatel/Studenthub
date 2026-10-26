@@ -54,7 +54,7 @@ requireRole("admin");
        <a href="../php/logout.php" class="logout">
             Logout
        </a>
-        <a href="events.html">🎉 Events</a>
+       <a href="event-management.php">Event Management</a>
     </aside>
 
 

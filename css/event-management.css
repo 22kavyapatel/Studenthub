@@ -1,0 +1,627 @@
+/* ==========================================
+   STUDENTHUB - EVENT MANAGEMENT
+   Modern Admin Dashboard Design
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6fb;
+    color: #1f2937;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: min(1400px, 94%);
+    margin: 0 auto;
+    padding: 35px 0 55px;
+}
+
+/* PAGE HEADER */
+
+.container > h1 {
+    margin: 0;
+    color: #111827;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.container > h1::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 32px;
+    margin-right: 12px;
+    background: #334155;
+    border-radius: 6px;
+    vertical-align: -4px;
+}
+
+.container > p {
+    color: #64748b;
+    margin: 8px 0 18px;
+}
+
+/* DASHBOARD BACK LINK */
+
+.container > p a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #334155;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.container > p a:hover {
+    color: #64748b;
+}
+
+/* PANELS */
+
+.panel {
+    background: #ffffff;
+    padding: 28px;
+    margin: 25px 0;
+    border: 1px solid #e5eaf2;
+    border-radius: 18px;
+    box-shadow: 0 5px 22px rgba(15, 23, 42, 0.045);
+    transition: box-shadow 0.2s ease;
+}
+
+.panel h2 {
+    margin: 0 0 24px;
+    color: #111827;
+    font-size: 22px;
+    font-weight: 750;
+    letter-spacing: -0.4px;
+}
+
+/* FORM LAYOUT */
+
+.panel form:not(.actions form) {
+    width: 100%;
+}
+
+.panel label {
+    display: block;
+    margin: 18px 0 7px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.panel input:not([type="hidden"]),
+.panel textarea,
+.panel select {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid #dbe1ea;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #1f2937;
+    font-family: inherit;
+    font-size: 14px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.panel textarea {
+    min-height: 115px;
+    resize: vertical;
+}
+
+.panel input[type="file"] {
+    padding: 10px;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.panel input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: #e2e8f0;
+    color: #1e293b;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.panel input:focus,
+.panel textarea:focus,
+.panel select:focus {
+    border-color: #64748b;
+    box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.13);
+}
+
+/* BUTTONS */
+
+.panel button,
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 42px;
+    margin: 20px 8px 0 0;
+    padding: 11px 20px;
+    border: 1px solid #1f2937;
+    border-radius: 9px;
+    background: #1f2937;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.panel button:hover,
+.button:hover {
+    background: #374151;
+    box-shadow: 0 5px 12px rgba(31, 41, 55, 0.15);
+    transform: translateY(-1px);
+}
+
+.panel button:active {
+    transform: translateY(0);
+}
+
+/* CANCEL EDIT AND RESET LINKS */
+
+.panel > form > a,
+.panel > a,
+.panel form > a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.panel > form > a:hover,
+.panel > a:hover,
+.panel form > a:hover {
+    color: #111827;
+    text-decoration: underline;
+}
+
+/* SEARCH AND FILTER FORM */
+
+#search {
+    margin-bottom: 5px;
+}
+
+#category-filter,
+#status-filter {
+    cursor: pointer;
+}
+
+#search:focus {
+    border-color: #64748b;
+}
+
+/* STATUS MESSAGES */
+
+.message {
+    padding: 15px 18px;
+    margin: 22px 0;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.message.success {
+    background: #ecfdf3;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+
+.message.error {
+    background: #fff1f2;
+    color: #be123c;
+    border-color: #fecdd3;
+}
+
+/* TABLE CONTAINER */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e5eaf2;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+/* EVENTS TABLE */
+
+table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+thead th {
+    padding: 16px 14px;
+    background: #f1f5f9;
+    color: #334155;
+    border: 0;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody td {
+    padding: 15px 14px;
+    border: 0;
+    border-bottom: 1px solid #edf0f5;
+    color: #475569;
+    text-align: left;
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+tbody tr {
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+tbody td:nth-child(3) {
+    min-width: 170px;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+/* POSTER PREVIEW */
+
+.poster {
+    display: block;
+    width: 90px;
+    height: 65px;
+    object-fit: cover;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f1f5f9;
+}
+
+/* ACTION BUTTONS */
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.actions form {
+    margin: 0;
+}
+
+.actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 7px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.actions a:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.actions button {
+    min-height: 34px;
+    margin: 0;
+    padding: 7px 12px;
+    border: 1px solid #fecaca;
+    border-radius: 7px;
+    background: #fff1f2;
+    color: #be123c;
+    font-size: 12px;
+    box-shadow: none;
+}
+
+.actions button:hover {
+    background: #ffe4e6;
+    border-color: #fda4af;
+    box-shadow: none;
+    transform: none;
+}
+
+/* EMPTY TABLE MESSAGE */
+
+tbody td[colspan] {
+    padding: 35px 15px;
+    color: #64748b;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ==========================================
+   DARK MODE
+   Supports both StudentHub theme class names
+   ========================================== */
+
+body.dark-mode,
+body.dark-theme {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+body.dark-mode .container > h1,
+body.dark-theme .container > h1 {
+    color: #f9fafb;
+}
+
+body.dark-mode .container > p,
+body.dark-theme .container > p {
+    color: #cbd5e1;
+}
+
+body.dark-mode .container > p a,
+body.dark-theme .container > p a {
+    color: #e2e8f0;
+}
+
+body.dark-mode .panel,
+body.dark-theme .panel {
+    background: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-mode .panel h2,
+body.dark-theme .panel h2 {
+    color: #f9fafb;
+}
+
+body.dark-mode .panel label,
+body.dark-theme .panel label {
+    color: #e5e7eb;
+}
+
+body.dark-mode .panel input:not([type="hidden"]),
+body.dark-mode .panel textarea,
+body.dark-mode .panel select,
+body.dark-theme .panel input:not([type="hidden"]),
+body.dark-theme .panel textarea,
+body.dark-theme .panel select {
+    background: #111827;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+body.dark-mode .panel input::placeholder,
+body.dark-mode .panel textarea::placeholder,
+body.dark-theme .panel input::placeholder,
+body.dark-theme .panel textarea::placeholder {
+    color: #9ca3af;
+}
+
+body.dark-mode .panel input[type="file"],
+body.dark-theme .panel input[type="file"] {
+    background: #111827;
+}
+
+body.dark-mode .panel input[type="file"]::file-selector-button,
+body.dark-theme .panel input[type="file"]::file-selector-button {
+    background: #374151;
+    color: #f9fafb;
+}
+
+body.dark-mode .panel > form > a,
+body.dark-mode .panel > a,
+body.dark-mode .panel form > a,
+body.dark-theme .panel > form > a,
+body.dark-theme .panel > a,
+body.dark-theme .panel form > a {
+    color: #cbd5e1;
+}
+
+body.dark-mode .table-wrap,
+body.dark-theme .table-wrap {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode table,
+body.dark-theme table {
+    background: #1f2937;
+}
+
+body.dark-mode thead th,
+body.dark-theme thead th {
+    background: #273449;
+    color: #e5e7eb;
+    border-bottom-color: #374151;
+}
+
+body.dark-mode tbody td,
+body.dark-theme tbody td {
+    color: #d1d5db;
+    border-bottom-color: #374151;
+}
+
+body.dark-mode tbody td:nth-child(3),
+body.dark-theme tbody td:nth-child(3) {
+    color: #f9fafb;
+}
+
+body.dark-mode tbody tr:hover,
+body.dark-theme tbody tr:hover {
+    background: #273449;
+}
+
+body.dark-mode .poster,
+body.dark-theme .poster {
+    border-color: #4b5563;
+    background: #111827;
+}
+
+body.dark-mode .actions a,
+body.dark-theme .actions a {
+    background: #374151;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+body.dark-mode .actions a:hover,
+body.dark-theme .actions a:hover {
+    background: #4b5563;
+}
+
+body.dark-mode .actions button,
+body.dark-theme .actions button {
+    background: #451a24;
+    color: #fecdd3;
+    border-color: #881337;
+}
+
+body.dark-mode .actions button:hover,
+body.dark-theme .actions button:hover {
+    background: #5b202c;
+}
+
+body.dark-mode .message.success,
+body.dark-theme .message.success {
+    background: #143525;
+    color: #bbf7d0;
+    border-color: #166534;
+}
+
+body.dark-mode .message.error,
+body.dark-theme .message.error {
+    background: #451a24;
+    color: #fecdd3;
+    border-color: #881337;
+}
+
+body.dark-mode tbody td[colspan],
+body.dark-theme tbody td[colspan] {
+    color: #cbd5e1;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (min-width: 900px) {
+    .panel form:not(.actions form) {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 94%;
+        padding-top: 24px;
+    }
+
+    .panel {
+        padding: 20px 16px;
+        margin: 18px 0;
+        border-radius: 13px;
+    }
+
+    .panel h2 {
+        font-size: 20px;
+    }
+
+    .container > h1 {
+        font-size: 28px;
+    }
+
+    .panel button {
+        max-width: 100%;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .actions a,
+    .actions button {
+        width: 100%;
+    }
+
+    .actions form {
+        width: 100%;
+    }
+
+    .actions form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 92%;
+    }
+
+    .container > h1 {
+        font-size: 25px;
+    }
+
+    .container > h1::before {
+        height: 25px;
+    }
+
+    .panel {
+        padding: 17px 13px;
+    }
+
+    .panel input:not([type="hidden"]),
+    .panel textarea,
+    .panel select {
+        padding: 11px;
+    }
+
+    .message {
+        padding: 12px;
+    }
+}
