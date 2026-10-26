@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+require_once __DIR__ . "/../php/auth_check.php";
+requireRole("admin");
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,9 +51,9 @@
 
         </nav>
 
-        <a href="login.html" class="logout">
+       <a href="../php/logout.php" class="logout">
             Logout
-        </a>
+       </a>
         <a href="events.html">🎉 Events</a>
     </aside>
 

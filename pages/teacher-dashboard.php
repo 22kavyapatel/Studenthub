@@ -1,11 +1,18 @@
+
+<?php
+require_once __DIR__ . "/../php/auth_check.php";
+requireRole("teacher");
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Teacher Dashboard - StudentHub</title>
 
+    <!-- CSS Files -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/teacher-dashboard.css">
 </head>
@@ -17,19 +24,29 @@
     <!-- SIDEBAR -->
     <aside class="sidebar">
 
+        <!-- BRAND -->
         <div class="brand">
             <h2>StudentHub</h2>
             <p>Teacher Portal</p>
         </div>
 
+        <!-- WELCOME -->
         <div class="welcome-box">
             <p>Welcome back,</p>
-            <strong>teacher</strong>
+
+            <strong>
+                <?= htmlspecialchars(
+                    $_SESSION["user_name"] ?? "Teacher",
+                    ENT_QUOTES,
+                    "UTF-8"
+                ) ?>
+            </strong>
         </div>
 
+        <!-- NAVIGATION -->
         <nav class="sidebar-nav">
 
-            <a href="teacher-dashboard.html" class="active">
+            <a href="teacher-dashboard.php" class="active">
                 📊 Dashboard
             </a>
 
@@ -44,11 +61,15 @@
             <a href="teacher-notices.html">
                 📢 Notices
             </a>
-            
-            <a href="events.html">🎉 Events</a>
+
+            <a href="events.html">
+                🎉 Events
+            </a>
+
         </nav>
 
-        <a href="login.html" class="logout">
+        <!-- LOGOUT -->
+        <a href="../php/logout.php" class="logout">
             Logout
         </a>
 
@@ -59,7 +80,6 @@
     <main class="main-content">
 
         <h1>Teacher Dashboard</h1>
-
 
         <!-- STAT CARDS -->
         <div class="stats-grid">
@@ -90,7 +110,6 @@
         <!-- LOWER SECTION -->
         <div class="dashboard-grid">
 
-
             <!-- RECENT ASSIGNMENTS -->
             <section class="dashboard-card">
 
@@ -108,7 +127,6 @@
 
                 </div>
 
-
                 <div class="assignment-item">
 
                     <div>
@@ -120,7 +138,6 @@
                     <b class="submitted">submitted</b>
 
                 </div>
-
 
                 <div class="assignment-item">
 
@@ -153,7 +170,6 @@
 
                 </div>
 
-
                 <div class="student-item">
 
                     <div>
@@ -164,7 +180,6 @@
                     <strong>GPA: 3.5</strong>
 
                 </div>
-
 
                 <div class="student-item">
 
@@ -186,8 +201,9 @@
 </div>
 
 
-<script src="../js/auth.js"></script>
+<!-- JAVASCRIPT -->
 <script src="../js/teacher-dashboard.js"></script>
 <script src="../js/theme.js"></script>
+
 </body>
 </html>

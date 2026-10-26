@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,9 +58,7 @@
             </div>
 
         </div>
-
     </div>
-
 
     <!-- RIGHT SIDE -->
     <div class="login-container">
@@ -72,8 +71,9 @@
                 Enter your details to continue
             </p>
 
-
-            <form id="loginForm">
+            <form id="loginForm"
+                  action="../php/login_process.php"
+                  method="POST">
 
                 <!-- EMAIL -->
                 <label for="email">Email Address</label>
@@ -81,10 +81,11 @@
                 <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="Enter your email"
+                    autocomplete="username"
                     required
                 >
-
 
                 <!-- PASSWORD -->
                 <label for="password">Password</label>
@@ -94,52 +95,41 @@
                     <input
                         type="password"
                         id="password"
+                        name="password"
                         placeholder="Enter your password"
+                        autocomplete="current-password"
                         required
                     >
 
                     <button
                         type="button"
-                        onclick="togglePassword()">
+                        onclick="togglePassword()"
+                        aria-label="Show or hide password">
                         👁
                     </button>
 
                 </div>
 
-
                 <!-- ROLE -->
                 <label for="role">Login As</label>
 
-                <select id="role" required>
-
-                    <option value="">
-                        Select your role
-                    </option>
-
-                    <option value="student">
-                        Student
-                    </option>
-
-                    <option value="teacher">
-                        Teacher
-                    </option>
-
-                    <option value="admin">
-                        Admin
-                    </option>
-
+                <select id="role" name="role" required>
+                    <option value="">Select your role</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="admin">Admin</option>
                 </select>
 
-
-                <!-- REMEMBER -->
+                <!-- REMEMBER ME AND FORGOT PASSWORD -->
                 <div class="login-options">
 
                     <label class="remember">
                         <input
                             type="checkbox"
                             id="remember"
+                            name="remember"
+                            value="1"
                         >
-
                         Remember me
                     </label>
 
@@ -149,50 +139,37 @@
 
                 </div>
 
-
                 <!-- LOGIN BUTTON -->
-                <button
-                    type="submit"
-                    class="login-btn">
-
+                <button type="submit" class="login-btn">
                     Sign In
-
                 </button>
 
-
-                <!-- ERROR -->
+                <!-- ERROR MESSAGE -->
                 <p id="loginMessage"></p>
 
             </form>
 
-
             <div class="register-text">
-
                 Don't have an account?
 
                 <a href="register.html">
                     Create Account
                 </a>
-
             </div>
 
-
             <div class="back-home">
-
                 <a href="../index.html">
                     ← Back to Home
                 </a>
-
             </div>
 
         </div>
-
     </div>
 
 </div>
 
-
 <script src="../js/login.js"></script>
 <script src="../js/theme.js"></script>
+
 </body>
 </html>
