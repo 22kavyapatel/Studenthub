@@ -1,748 +1,487 @@
-// ==========================================
-// PRACTICAL 6 - EVENTS
-// Fetch API + Search + Filter + Sort + Pagination
-// Role Based Student / Teacher / Admin
-// ==========================================
 
+// StudentHub Events Page
+// Loads events from Admin Event Management through the PHP API.
 
-// All events
+'use strict';
+
 let events = [];
-
-// Current page
 let currentPage = 1;
-
-// Events per page
 const recordsPerPage = 6;
 
+const userRole = (localStorage.getItem('userRole') || 'student').toLowerCase();
 
-// Get logged-in role
-let userRole = localStorage.getItem("userRole");
+const roleElement = document.getElementById('userRole');
+const eventsGrid = document.getElementById('eventsGrid');
+const searchInput = document.getElementById('searchInput');
+const categoryFilter = document.getElementById('categoryFilter');
+const sortSelect = document.getElementById('sortSelect');
+const pagination = document.getElementById('pagination');
+const loading = document.getElementById('loading');
+const errorMessage = document.getElementById('errorMessage');
 
-// If no role is stored
-if (!userRole) {
-    userRole = "student";
+// Display current user role.
+if (roleElement) {
+    roleElement.textContent =
+        userRole.charAt(0).toUpperCase() + userRole.slice(1);
 }
 
-
-// Convert role to proper display
-let displayRole = userRole.charAt(0).toUpperCase() + userRole.slice(1);
-
-document.getElementById("userRole").textContent = displayRole;
-
-
-// DOM elements
-const eventsGrid = document.getElementById("eventsGrid");
-const searchInput = document.getElementById("searchInput");
-const categoryFilter = document.getElementById("categoryFilter");
-const sortSelect = document.getElementById("sortSelect");
-const pagination = document.getElementById("pagination");
-const loading = document.getElementById("loading");
-const errorMessage = document.getElementById("errorMessage");
-
-
-// ==========================================
-// FETCH EVENTS
-// ==========================================
-
+// Load events from the database.
 async function loadEvents() {
+    if (loading) loading.style.display = 'block';
+    if (errorMessage) errorMessage.style.display = 'none';
 
     try {
-
-        loading.style.display = "block";
-        errorMessage.style.display = "none";
-
-        const response = await fetch("../data/events.json");
+        const response = await fetch('../php/get_events.php?t=' + Date.now(), {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            },
+            cache: 'no-store'
+        });
 
         if (!response.ok) {
-            throw new Error("Unable to load events.");
+            throw new Error('HTTP error: ' + response.status);
         }
 
-        events = await response.json();
+        const payload = await response.json();
 
-        loading.style.display = "none";
+        if (
+            !payload ||
+            payload.success !== true ||
+            !Array.isArray(payload.data)
+        ) {
+            throw new Error('Invalid response from the events API.');
+        }
+
+        // Use database events, not data/events.json.
+        events = payload.data.map(function (row) {
+            return {
+                id: Number(row.id),
+                title: String(row.title || 'Untitled event'),
+                description: String(row.description || ''),
+                date: String(row.date || ''),
+                time: String(row.time || ''),
+                location: String(row.location || ''),
+                category: String(row.category || 'General'),
+                status: String(row.status || ''),
+                poster_url: String(row.poster_url || ''),
+                organizer: String(row.organizer || 'StudentHub'),
+                capacity: row.capacity
+            };
+        });
 
         createCategoryFilter();
-
+        currentPage = 1;
         displayEvents();
 
+        console.log(
+            'Events loaded from database:',
+            events.map(function (event) {
+                return event.title;
+            })
+        );
+
     } catch (error) {
+        console.error('Failed to load events:', error);
 
-        loading.style.display = "none";
+        events = [];
 
-        errorMessage.textContent =
-            "Error loading events: " + error.message;
+        if (eventsGrid) eventsGrid.replaceChildren();
+        if (pagination) pagination.replaceChildren();
 
-        errorMessage.style.display = "block";
+        if (errorMessage) {
+            errorMessage.textContent =
+                'Unable to load events. Check XAMPP and the get_events.php file.';
+            errorMessage.style.display = 'block';
+        }
+    } finally {
+        if (loading) loading.style.display = 'none';
     }
 }
 
-
-// ==========================================
-// CREATE CATEGORY FILTER
-// ==========================================
-
+// Create category options from database events.
 function createCategoryFilter() {
+    if (!categoryFilter) return;
 
-    const categories = [];
+    const previousValue = categoryFilter.value || 'all';
 
-    events.forEach(function(event) {
+    categoryFilter.replaceChildren();
 
-        if (!categories.includes(event.category)) {
-            categories.push(event.category);
-        }
+    const allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = 'All Categories';
+    categoryFilter.appendChild(allOption);
 
+    const categories = [
+        ...new Set(
+            events
+                .map(function (event) {
+                    return event.category;
+                })
+                .filter(Boolean)
+        )
+    ].sort(function (a, b) {
+        return a.localeCompare(b);
     });
 
-    categories.sort();
-
-    categories.forEach(function(category) {
-
-        const option = document.createElement("option");
-
+    categories.forEach(function (category) {
+        const option = document.createElement('option');
         option.value = category;
         option.textContent = category;
-
         categoryFilter.appendChild(option);
-
     });
+
+    if (
+        [...categoryFilter.options].some(function (option) {
+            return option.value === previousValue;
+        })
+    ) {
+        categoryFilter.value = previousValue;
+    }
 }
 
-
-// ==========================================
-// GET FILTERED EVENTS
-// ==========================================
-
+// Search, filter, and sort events.
 function getFilteredEvents() {
+    let result = events.slice();
 
-    let result = [...events];
+    const query = (
+        searchInput ? searchInput.value : ''
+    ).trim().toLowerCase();
 
-    // Search
-    const searchText =
-        searchInput.value.toLowerCase().trim();
-
-    if (searchText !== "") {
-
-        result = result.filter(function(event) {
-
-            return (
-                event.title.toLowerCase().includes(searchText) ||
-                event.description.toLowerCase().includes(searchText) ||
-                event.organizer.toLowerCase().includes(searchText)
-            );
-
+    if (query) {
+        result = result.filter(function (event) {
+            return [
+                event.title,
+                event.description,
+                event.location,
+                event.category,
+                event.organizer
+            ].some(function (value) {
+                return String(value || '')
+                    .toLowerCase()
+                    .includes(query);
+            });
         });
-
     }
 
+    const selectedCategory = categoryFilter
+        ? categoryFilter.value
+        : 'all';
 
-    // Category
-    const selectedCategory =
-        categoryFilter.value;
-
-    if (selectedCategory !== "all") {
-
-        result = result.filter(function(event) {
-
+    if (selectedCategory !== 'all') {
+        result = result.filter(function (event) {
             return event.category === selectedCategory;
-
         });
-
     }
 
+    const sort = sortSelect ? sortSelect.value : 'dateAsc';
 
-    // Sort
-    const sortValue = sortSelect.value;
-
-    if (sortValue === "dateAsc") {
-
-        result.sort(function(a, b) {
-
-            return new Date(a.date) - new Date(b.date);
-
+    if (sort === 'dateAsc') {
+        result.sort(function (a, b) {
+            return dateValue(a.date) - dateValue(b.date);
         });
-
-    }
-
-    else if (sortValue === "dateDesc") {
-
-        result.sort(function(a, b) {
-
-            return new Date(b.date) - new Date(a.date);
-
+    } else if (sort === 'dateDesc') {
+        result.sort(function (a, b) {
+            return dateValue(b.date) - dateValue(a.date);
         });
-
-    }
-
-    else if (sortValue === "titleAsc") {
-
-        result.sort(function(a, b) {
-
+    } else if (sort === 'titleAsc') {
+        result.sort(function (a, b) {
             return a.title.localeCompare(b.title);
-
         });
-
-    }
-
-    else if (sortValue === "titleDesc") {
-
-        result.sort(function(a, b) {
-
+    } else if (sort === 'titleDesc') {
+        result.sort(function (a, b) {
             return b.title.localeCompare(a.title);
-
         });
-
     }
-
 
     return result;
 }
 
+// Convert a date into a sortable number.
+function dateValue(value) {
+    const timestamp = Date.parse(value);
+    return Number.isNaN(timestamp) ? 0 : timestamp;
+}
 
-// ==========================================
-// DISPLAY EVENTS
-// ==========================================
-
+// Display events on the page.
 function displayEvents() {
+    if (!eventsGrid) return;
 
-    const filteredEvents = getFilteredEvents();
+    const filtered = getFilteredEvents();
 
-    eventsGrid.innerHTML = "";
+    eventsGrid.replaceChildren();
 
+    if (filtered.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-message';
 
-    if (filteredEvents.length === 0) {
+        const heading = document.createElement('h3');
+        heading.textContent = events.length
+            ? 'No events found'
+            : 'No events available';
 
-        eventsGrid.innerHTML = `
-            <div class="empty-message">
-                <h3>No events found</h3>
-                <p>Try another search or filter.</p>
-            </div>
-        `;
+        const paragraph = document.createElement('p');
+        paragraph.textContent = events.length
+            ? 'Try another search or category.'
+            : 'Events added by the administrator will appear here.';
 
-        pagination.innerHTML = "";
+        empty.append(heading, paragraph);
+        eventsGrid.appendChild(empty);
 
+        if (pagination) pagination.replaceChildren();
         return;
     }
 
+    const totalPages = Math.ceil(filtered.length / recordsPerPage);
 
-    // Total pages
-    const totalPages =
-        Math.ceil(filteredEvents.length / recordsPerPage);
+    currentPage = Math.min(
+        Math.max(currentPage, 1),
+        totalPages
+    );
 
+    const start = (currentPage - 1) * recordsPerPage;
+    const pageEvents = filtered.slice(
+        start,
+        start + recordsPerPage
+    );
 
-    // Check current page
-    if (currentPage > totalPages) {
-        currentPage = totalPages;
-    }
-
-
-    // Starting index
-    const startIndex =
-        (currentPage - 1) * recordsPerPage;
-
-
-    // Ending index
-    const endIndex =
-        startIndex + recordsPerPage;
-
-
-    // Pagination using slice()
-    const pageEvents =
-        filteredEvents.slice(startIndex, endIndex);
-
-
-    // Create cards
-    pageEvents.forEach(function(event) {
-
-        const card =
-            createEventCard(event);
-
-        eventsGrid.appendChild(card);
-
+    pageEvents.forEach(function (event) {
+        eventsGrid.appendChild(createEventCard(event));
     });
-
 
     createPagination(totalPages);
 }
 
-
-// ==========================================
-// CREATE EVENT CARD
-// ==========================================
-
+// Create an individual event card.
 function createEventCard(event) {
+    const card = document.createElement('article');
+    card.className = 'event-card';
 
-    const card =
-        document.createElement("div");
+    if (event.poster_url) {
+        const image = document.createElement('img');
 
-    card.className = "event-card";
+        image.src = event.poster_url;
+        image.alt = event.title + ' poster';
+        image.loading = 'lazy';
+        image.className = 'event-poster';
 
+        image.onerror = function () {
+            image.remove();
+        };
 
-    let buttons = "";
-
-
-    // ======================================
-    // STUDENT
-    // ======================================
-
-    if (userRole === "student") {
-
-        const participated =
-            hasStudentParticipated(event.id);
-
-
-        if (participated) {
-
-            buttons += `
-                <button
-                    class="event-btn participated-btn"
-                    disabled>
-                    ✓ Participated
-                </button>
-            `;
-
-        } else {
-
-            buttons += `
-                <button
-                    class="event-btn participate-btn"
-                    onclick="participateEvent(${event.id})">
-                    Participate
-                </button>
-            `;
-
-        }
-
+        card.appendChild(image);
     }
 
+    const category = document.createElement('span');
+    category.className = 'event-category';
+    category.textContent = event.category;
 
-    // ======================================
-    // TEACHER
-    // ======================================
+    const title = document.createElement('h3');
+    title.textContent = event.title;
 
-    else if (userRole === "teacher") {
+    const date = document.createElement('div');
+    date.className = 'event-info';
+    date.textContent = '📅 ' + formatDate(event.date);
 
-        buttons += `
-            <button
-                class="event-btn details-btn"
-                onclick="viewEvent(${event.id})">
-                View Details
-            </button>
-
-            <button
-                class="event-btn edit-btn"
-                onclick="editEvent(${event.id})">
-                Edit
-            </button>
-        `;
-
+    if (event.time) {
+        const time = document.createElement('div');
+        time.className = 'event-info';
+        time.textContent = '🕐 ' + event.time;
+        card.appendChild(category);
+        card.appendChild(title);
+        card.appendChild(date);
+        card.appendChild(time);
+    } else {
+        card.append(category, title, date);
     }
 
+    const location = document.createElement('div');
+    location.className = 'event-info';
+    location.textContent =
+        '📍 ' + (event.location || 'Location to be announced');
 
-    // ======================================
-    // ADMIN
-    // ======================================
+    const organizer = document.createElement('div');
+    organizer.className = 'event-info';
+    organizer.textContent = '👤 ' + event.organizer;
 
-    else if (userRole === "admin") {
+    const status = document.createElement('div');
+    status.className = 'event-info';
+    status.textContent = 'Status: ' + (event.status || 'Open');
 
-        buttons += `
-            <button
-                class="event-btn details-btn"
-                onclick="viewEvent(${event.id})">
-                View Details
-            </button>
+    const description = document.createElement('p');
+    description.className = 'event-description';
+    description.textContent = event.description;
 
-            <button
-                class="event-btn edit-btn"
-                onclick="editEvent(${event.id})">
-                Edit
-            </button>
+    card.append(location, organizer, status, description);
 
-            <button
-                class="event-btn delete-btn"
-                onclick="deleteEvent(${event.id})">
-                Delete
-            </button>
-        `;
-
+    if (event.capacity !== null && event.capacity !== undefined &&
+        event.capacity !== '') {
+        const capacity = document.createElement('div');
+        capacity.className = 'event-info';
+        capacity.textContent = '👥 Capacity: ' + event.capacity;
+        card.appendChild(capacity);
     }
 
+    if (userRole === 'student') {
+        const button = document.createElement('button');
 
-    card.innerHTML = `
+        button.type = 'button';
+        button.className = 'event-btn participate-btn';
 
-        <span class="event-category">
-            ${event.category}
-        </span>
+        const participated = hasStudentParticipated(event.id);
 
-        <h3>
-            ${event.title}
-        </h3>
+        button.textContent = participated
+            ? '✓ Participated'
+            : 'Participate';
 
-        <div class="event-info">
-            📅 ${formatDate(event.date)}
-        </div>
+        button.disabled = participated;
 
-        <div class="event-info">
-            🕐 ${event.time}
-        </div>
+        button.addEventListener('click', function () {
+            participateEvent(event.id);
+        });
 
-        <div class="event-info">
-            📍 ${event.venue}
-        </div>
-
-        <div class="event-info">
-            👤 ${event.organizer}
-        </div>
-
-        <div class="event-info">
-            👥 Capacity: ${event.capacity}
-        </div>
-
-        <p class="event-description">
-            ${event.description}
-        </p>
-
-        <div>
-            ${buttons}
-        </div>
-    `;
-
+        card.appendChild(button);
+    }
 
     return card;
 }
 
-
-// ==========================================
-// FORMAT DATE
-// ==========================================
-
+// Format event date.
 function formatDate(dateString) {
+    if (!dateString) return 'Date to be announced';
 
-    const date = new Date(dateString);
+    const date = new Date(
+        dateString.length === 10
+            ? dateString + 'T00:00:00'
+            : dateString
+    );
 
-    return date.toLocaleDateString("en-IN", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
+    if (Number.isNaN(date.getTime())) {
+        return dateString;
+    }
+
+    return date.toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
     });
 }
 
-
-// ==========================================
-// STUDENT PARTICIPATION
-// ==========================================
-
-function participateEvent(eventId) {
-
-    if (userRole !== "student") {
-        return;
-    }
-
-
-    let participatedEvents =
-        JSON.parse(
-            localStorage.getItem("participatedEvents")
+// Read participated event IDs from localStorage.
+function getParticipatedEvents() {
+    try {
+        const value = JSON.parse(
+            localStorage.getItem('participatedEvents') || '[]'
         );
 
-
-    if (!participatedEvents) {
-        participatedEvents = [];
+        return Array.isArray(value)
+            ? value.map(Number)
+            : [];
+    } catch (error) {
+        return [];
     }
+}
 
+// Check whether the student has participated.
+function hasStudentParticipated(eventId) {
+    return getParticipatedEvents().includes(Number(eventId));
+}
 
-    if (!participatedEvents.includes(eventId)) {
+// Mark an event as participated in this browser.
+function participateEvent(eventId) {
+    if (userRole !== 'student') return;
 
-        participatedEvents.push(eventId);
+    const participated = getParticipatedEvents();
 
+    if (!participated.includes(Number(eventId))) {
+        participated.push(Number(eventId));
 
         localStorage.setItem(
-            "participatedEvents",
-            JSON.stringify(participatedEvents)
+            'participatedEvents',
+            JSON.stringify(participated)
         );
 
-
-        alert("You have successfully participated in this event!");
+        alert(
+            'Marked as participated in this browser. ' +
+            'This is not a server-side registration.'
+        );
 
         displayEvents();
     }
 }
 
-
-// ==========================================
-// CHECK PARTICIPATION
-// ==========================================
-
-function hasStudentParticipated(eventId) {
-
-    const participatedEvents =
-        JSON.parse(
-            localStorage.getItem("participatedEvents")
-        ) || [];
-
-
-    return participatedEvents.includes(eventId);
-}
-
-
-// ==========================================
-// VIEW EVENT
-// ==========================================
-
-function viewEvent(eventId) {
-
-    const event =
-        events.find(function(item) {
-            return item.id === eventId;
-        });
-
-
-    if (!event) {
-        return;
-    }
-
-
-    alert(
-        "Event: " + event.title +
-        "\n\n" +
-        "Date: " + formatDate(event.date) +
-        "\n" +
-        "Time: " + event.time +
-        "\n" +
-        "Venue: " + event.venue +
-        "\n" +
-        "Organizer: " + event.organizer +
-        "\n\n" +
-        event.description
-    );
-}
-
-
-// ==========================================
-// TEACHER / ADMIN EDIT
-// ==========================================
-
-function editEvent(eventId) {
-
-    if (userRole !== "teacher" && userRole !== "admin") {
-        return;
-    }
-
-
-    const event =
-        events.find(function(item) {
-            return item.id === eventId;
-        });
-
-
-    if (!event) {
-        return;
-    }
-
-
-    const newTitle =
-        prompt("Enter new event title:", event.title);
-
-
-    if (newTitle === null || newTitle.trim() === "") {
-        return;
-    }
-
-
-    event.title = newTitle.trim();
-
-
-    saveEventsLocally();
-
-    displayEvents();
-
-    alert("Event updated successfully.");
-}
-
-
-// ==========================================
-// ADMIN DELETE
-// ==========================================
-
-function deleteEvent(eventId) {
-
-    if (userRole !== "admin") {
-        return;
-    }
-
-
-    const confirmDelete =
-        confirm("Are you sure you want to delete this event?");
-
-
-    if (!confirmDelete) {
-        return;
-    }
-
-
-    events =
-        events.filter(function(event) {
-            return event.id !== eventId;
-        });
-
-
-    saveEventsLocally();
-
-    displayEvents();
-
-    alert("Event deleted successfully.");
-}
-
-
-// ==========================================
-// SAVE LOCAL COPY
-// ==========================================
-
-function saveEventsLocally() {
-
-    localStorage.setItem(
-        "studentHubEvents",
-        JSON.stringify(events)
-    );
-}
-
-
-// ==========================================
-// PAGINATION
-// ==========================================
-
+// Create pagination buttons.
 function createPagination(totalPages) {
+    if (!pagination) return;
 
-    pagination.innerHTML = "";
+    pagination.replaceChildren();
 
+    if (totalPages <= 1) return;
 
-    // Previous
-    const previousButton =
-        document.createElement("button");
+    function addButton(label, page, disabled, active) {
+        const button = document.createElement('button');
 
-    previousButton.textContent = "Previous";
+        button.type = 'button';
+        button.textContent = label;
+        button.disabled = disabled;
 
-    previousButton.disabled =
-        currentPage === 1;
-
-
-    previousButton.onclick = function() {
-
-        if (currentPage > 1) {
-
-            currentPage--;
-
-            displayEvents();
-        }
-    };
-
-
-    pagination.appendChild(previousButton);
-
-
-    // Page numbers
-    for (
-        let i = 1;
-        i <= totalPages;
-        i++
-    ) {
-
-        const pageButton =
-            document.createElement("button");
-
-        pageButton.textContent = i;
-
-
-        if (i === currentPage) {
-            pageButton.classList.add("active");
+        if (active) {
+            button.classList.add('active');
         }
 
-
-        pageButton.onclick = function() {
-
-            currentPage = i;
-
+        button.addEventListener('click', function () {
+            currentPage = page;
             displayEvents();
-        };
+        });
 
-
-        pagination.appendChild(pageButton);
+        pagination.appendChild(button);
     }
 
+    addButton(
+        'Previous',
+        currentPage - 1,
+        currentPage === 1,
+        false
+    );
 
-    // Next
-    const nextButton =
-        document.createElement("button");
+    for (let page = 1; page <= totalPages; page++) {
+        addButton(
+            String(page),
+            page,
+            false,
+            page === currentPage
+        );
+    }
 
-    nextButton.textContent = "Next";
-
-    nextButton.disabled =
-        currentPage === totalPages;
-
-
-    nextButton.onclick = function() {
-
-        if (currentPage < totalPages) {
-
-            currentPage++;
-
-            displayEvents();
-        }
-    };
-
-
-    pagination.appendChild(nextButton);
+    addButton(
+        'Next',
+        currentPage + 1,
+        currentPage === totalPages,
+        false
+    );
 }
 
-
-// ==========================================
-// SEARCH
-// ==========================================
-
-searchInput.addEventListener(
-    "input",
-    function() {
-
+// Event listeners for controls.
+if (searchInput) {
+    searchInput.addEventListener('input', function () {
         currentPage = 1;
-
         displayEvents();
+    });
+}
 
-    }
-);
-
-
-// ==========================================
-// FILTER
-// ==========================================
-
-categoryFilter.addEventListener(
-    "change",
-    function() {
-
+if (categoryFilter) {
+    categoryFilter.addEventListener('change', function () {
         currentPage = 1;
-
         displayEvents();
+    });
+}
 
-    }
-);
-
-
-// ==========================================
-// SORT
-// ==========================================
-
-sortSelect.addEventListener(
-    "change",
-    function() {
-
+if (sortSelect) {
+    sortSelect.addEventListener('change', function () {
         currentPage = 1;
-
         displayEvents();
+    });
+}
 
-    }
-);
-
-
-// ==========================================
-// LOAD EVENTS
-// ==========================================
-
+// Start loading events.
 loadEvents();

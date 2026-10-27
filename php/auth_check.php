@@ -1,15 +1,17 @@
+
 <?php
 
-// Configure the session cookie.
-session_set_cookie_params([
-    "lifetime" => 0,
-    "path" => "/StudentHub/",
-    "secure" => !empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off",
-    "httponly" => true,
-    "samesite" => "Lax"
-]);
+// Start the session and configure cookie settings safely.
+if (session_status() === PHP_SESSION_NONE) {
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_set_cookie_params([
+        "lifetime" => 0,
+        "path" => "/StudentHub/",
+        "secure" => !empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off",
+        "httponly" => true,
+        "samesite" => "Lax"
+    ]);
+
     session_start();
 }
 
@@ -18,7 +20,7 @@ $timeout = 900;
 
 // Check whether the user is logged in.
 if (!isset($_SESSION["user_id"], $_SESSION["user_role"])) {
-    header("Location: login.html");
+    header("Location: /StudentHub/pages/login.html");
     exit;
 }
 
@@ -27,8 +29,10 @@ if (
     !isset($_SESSION["last_activity"]) ||
     time() - $_SESSION["last_activity"] > $timeout
 ) {
+    // Clear session data.
     $_SESSION = [];
 
+    // Remove the session cookie.
     if (ini_get("session.use_cookies")) {
         $params = session_get_cookie_params();
 
@@ -46,13 +50,15 @@ if (
         );
     }
 
+    // Destroy the session.
     session_destroy();
 
-    header("Location: login.html?error=timeout");
+    // Redirect to login with a timeout message.
+    header("Location: /StudentHub/pages/login.html?error=timeout");
     exit;
 }
 
-// Refresh the activity timestamp.
+// Update the last activity time.
 $_SESSION["last_activity"] = time();
 
 // Helper function to restrict pages by role.
@@ -62,12 +68,15 @@ function requireRole($allowedRoles)
         $allowedRoles = [$allowedRoles];
     }
 
-    if (!in_array($_SESSION["user_role"], $allowedRoles, true)) {
+    if (
+        !isset($_SESSION["user_role"]) ||
+        !in_array($_SESSION["user_role"], $allowedRoles, true)
+    ) {
         http_response_code(403);
 
         echo "<h1>403 - Access Denied</h1>";
         echo "<p>You are not authorized to access this page.</p>";
-        echo '<p><a href="login.html">Return to Login</a></p>';
+        echo '<p><a href="/StudentHub/pages/login.html">Return to Login</a></p>';
 
         exit;
     }

@@ -1,5 +1,7 @@
 
 <?php
+require_once __DIR__ . "/../php/auth_check.php";
+requireRole("admin");
 require_once __DIR__ . "/../php/db_mysqli.php";
 
 $search = trim($_GET["search"] ?? "");
@@ -233,17 +235,7 @@ $message = $_GET["message"] ?? "";
                         <td><?= htmlspecialchars($student["year"] ?? "", ENT_QUOTES, "UTF-8") ?></td>
                         <td>
                             <div class="actions">
-                                <a class="button edit"
-                                   href="student-edit.php?id=<?= (int) $student["student_id"] ?>">
-                                    Edit
-                                </a>
-
-                                <form method="POST" action="../php/student-delete.php"
-                                      onsubmit="return confirm('Are you sure you want to delete this student?');">
-                                    <input type="hidden" name="student_id"
-                                           value="<?= (int) $student["student_id"] ?>">
-                                    <button class="button delete" type="submit">Delete</button>
-                                </form>
+                                <span>Use the Student Management (AJAX) page for supported add, edit, and delete actions.</span>
                             </div>
                         </td>
                     </tr>
